@@ -3,9 +3,9 @@
 namespace Src\Application\Actions\Product\Contracts;
 
 use Src\Application\Actions\Contracts\ActionInterface;
-use Src\Application\Dto\Product\Response\ProductDto;
+use Src\Application\Dto\Contracts\BaseDto;
 
 interface ProductGetOneActionInterface extends ActionInterface
 {
-    public function handle(int $id): ProductDto;
+    public function handle(int $id): BaseDto;
 }
