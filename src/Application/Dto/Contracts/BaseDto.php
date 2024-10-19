@@ -19,9 +19,8 @@ abstract readonly class BaseDto implements DtoInterface
      */
     public static function from(array $data): static
     {
-        $class = new static();
         try {
-            Hydrator::hydrate($class, $data);
+            return Hydrator::hydrate(static::class, $data);
         } catch (HydratorException $e) {
             throw new DtoException($e->getMessage(), $e->getCode(), $e);
         }

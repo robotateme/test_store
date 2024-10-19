@@ -28,11 +28,6 @@ class Testing extends Command
      */
     public function handle(): void
     {
-        try {
-            $dto = Hydrator::hydrate(UserLoginDto::class, ['email' => 'test@mail.ru', 'password' => '123456']);
-            dd($dto);
-        } catch (HydratorException $e) {
-            $this->error($e->getMessage());
-        }
+
     }
 }
