@@ -2,35 +2,20 @@
 
 namespace Src\Application\Dto\Contracts;
 
-use Src\Application\Dto\Exceptions\DtoException;
+use Src\Application\Dto\Pagination\Contracts\BasePaginationDto;
 
-readonly class BaseDtoCollection
+abstract readonly class BaseDtoCollection implements DtoCollectionInterface
 {
-    public function __construct(public array $items = [])
+    public function __construct(public array $items, public BasePaginationDto $paginationDto)
     {
+
     }
 
     /**
-     * @param  array  $data
-     * @param  string|DtoInterface  $as
-     * @return BaseDtoCollection
-     * @throws DtoException
+     * @return array
      */
-    public static function collect(array $data, string|DtoInterface $as): static
+    public function toArray(): array
     {
-        if (!is_array(reset($data))) {
-            throw new DtoException('Data is not an associative array');
-        }
-
-        if (is_object($as)) {
-            $as = get_class($as);
-        }
-
-        $self = new static();
-        foreach ($data as $item) {
-            $self->items[] = $as::from($item);
-        }
-
-        return $self;
+        return [];
     }
 }

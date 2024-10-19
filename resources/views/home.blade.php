@@ -379,6 +379,7 @@
 
     <div class="shop-list flex-grow-1">
       <div class="swiper-container js-swiper-slider slideshow slideshow_small slideshow_split" data-settings='{
+      <div class="swiper-container js-swiper-slider slideshow slideshow_small slideshow_split" data-settings='{
             "autoplay": {
               "delay": 5000
             },
@@ -455,38 +456,13 @@
             </div>
 
             <div class="pc__info position-relative">
-              <p class="pc__category">Dresses</p>
+              <p class="pc__category"></p>
               <h6 class="pc__title"><a href="/details">Cropped Faux Leather Jacket</a></h6>
               <div class="product-card__price d-flex">
                 <span class="money price">$29</span>
               </div>
               <div class="product-card__review d-flex align-items-center">
-                <div class="reviews-group d-flex">
-                  <svg class="review-star" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-                    <use href="#icon_star" />
-                  </svg>
-                  <svg class="review-star" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-                    <use href="#icon_star" />
-                  </svg>
-                  <svg class="review-star" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-                    <use href="#icon_star" />
-                  </svg>
-                  <svg class="review-star" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-                    <use href="#icon_star" />
-                  </svg>
-                  <svg class="review-star" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-                    <use href="#icon_star" />
-                  </svg>
-                </div>
-                <span class="reviews-note text-lowercase text-secondary ms-1">8k+ reviews</span>
               </div>
-
-              <button class="pc__btn-wl position-absolute top-0 end-0 bg-transparent border-0 js-add-wishlist"
-                      title="Add To Wishlist">
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <use href="#icon_heart" />
-                </svg>
-              </button>
             </div>
           </div>
         </div>

@@ -1,8 +1,9 @@
 <?php
 
 return [
-    App\Providers\ActionProvider::class,
+    App\Providers\RepositoriesProvider::class,
+    App\Providers\ActionsProvider::class,
     App\Providers\AppServiceProvider::class,
-    App\Providers\PageProvider::class,
-    App\Providers\RepositoryProvider::class,
+    App\Providers\AssemblersProvider::class,
+    App\Providers\PagesProvider::class,
 ];

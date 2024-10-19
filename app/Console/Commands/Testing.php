@@ -3,9 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Src\Application\Dto\User\Request\UserLoginDto;
-use Src\Core\Hydrator\Exceptions\HydratorException;
-use Src\Core\Hydrator\Hydrator;
+use Src\Application\Actions\Product\ProductGetOneAction;
 
 class Testing extends Command
 {
@@ -26,8 +24,8 @@ class Testing extends Command
     /**
      * Execute the console command.
      */
-    public function handle(): void
+    public function handle(ProductGetOneAction $action): void
     {
-
+        dd($action->handle(2));
     }
 }

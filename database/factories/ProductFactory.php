@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
+ * @extends Factory<Product>
  */
 class ProductFactory extends Factory
 {
@@ -16,8 +17,10 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+        $number = $this->faker->randomNumber();
         return [
-            //
+            'title' => "Product#$number",
+            'price' => round($this->faker->randomFloat(2, 100, 9999), 3),
         ];
     }
 }

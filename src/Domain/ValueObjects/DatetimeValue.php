@@ -18,7 +18,7 @@ class DatetimeValue implements ValueObjectInterface
         return $this->value->format($this->format);
     }
 
-    public function __construct(private readonly DateTime $value)
+    public function __construct(private readonly DateTime|string $value)
     {
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Src\Domain\ValueObjects;
 
-use Src\Core\Utils\PasswordUtils;
+use Src\Core\Utils\PasswordHash;
 use Src\Domain\Contracts\ValueObjectInterface;
 
 readonly class EncryptPasswordValue implements ValueObjectInterface
@@ -10,7 +10,7 @@ readonly class EncryptPasswordValue implements ValueObjectInterface
     private string $value;
     public function __construct(private string $password)
     {
-        $this->value = PasswordUtils::hashPasswordSha256($this->password);
+        $this->value = PasswordHash::hashPasswordBcrypt($this->password);
     }
 
     public function getValue(): string
