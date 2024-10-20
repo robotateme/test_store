@@ -2,8 +2,12 @@
 
 namespace App\Console\Commands;
 
+use App\Dto\User\Request\UserLoginDto;
 use Illuminate\Console\Command;
+use Src\Core\Utils\PasswordHash;
 use Src\Domain\Actions\Product\ProductGetOneAction;
+use Src\Domain\Actions\User\UserLoginAction;
+use Src\Infrastructure\Assemblers\User\UserLoginDtoAssembler;
 
 class Testing extends Command
 {
@@ -24,8 +28,13 @@ class Testing extends Command
     /**
      * Execute the console command.
      */
-    public function handle(ProductGetOneAction $action): void
+    public function handle(UserLoginAction $action): void
     {
-        dd($action->handle(2));
+        $userLoginDto = UserLoginDtoAssembler::fromArray([
+            'email' => 'test@example.com', 'password' => 'password'
+        ]);
+
+        dd($action->handle($userLoginDto));
+//        dd(PasswordHash::passwordHashVerify('password', PasswordHash::hashPasswordBcrypt('password')));
     }
 }

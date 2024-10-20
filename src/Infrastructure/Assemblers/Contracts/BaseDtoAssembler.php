@@ -68,7 +68,7 @@ abstract class BaseDtoAssembler implements AssemblerInterface
                 if (is_array($data)) {
                     return static::fromArray($data);
                 } elseif ($data instanceof Arrayable) {
-                    return static::fromModel($data->toArray());
+                    return static::fromArray($data->toArray());
                 }
                 throw new AssemblerException("Wrong array item type");
             }, $models);
