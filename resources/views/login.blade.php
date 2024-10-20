@@ -293,15 +293,7 @@
                                    autocomplete="current-password">
                             <label for="customerPasswodInput">Password *</label>
                         </div>
-
                         <button class="btn btn-primary w-100 text-uppercase" type="submit">Log In</button>
-
-                        <div class="customer-option mt-4 text-center">
-                            <span class="text-secondary">No account yet?</span>
-                            <a href="register.blade.php" class="btn-text js-show-register">Create Account</a> | <a
-                                    href="my-account.html"
-                                    class="btn-text js-show-register">My Account</a>
-                        </div>
                     </form>
                 </div>
             </div>

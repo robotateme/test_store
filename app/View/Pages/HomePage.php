@@ -10,10 +10,12 @@ use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Source\Domain\Actions\Product\ProductGetListAction;
 use Source\Domain\Dto\Pagination\Request\PaginationDto;
-use Source\Infrastructure\Assemblers\Exceptions\AssemblerException;
 
 readonly class HomePage extends BasePage implements HomePageInterface
 {
+    /**
+     * @param  ProductGetListAction  $productGetListAction
+     */
     public function __construct(private ProductGetListAction $productGetListAction)
     {
     }
@@ -26,7 +28,7 @@ readonly class HomePage extends BasePage implements HomePageInterface
     {
         $perPage = config('site.home.pagination.products_per_page', 20);
         $page = $request->get('page', 1);
-        $perPage = $request->get('page', $perPage);
+        $perPage = $request->get('perPage', $perPage);
 
         $productsListDto = $this->productGetListAction->handle(
             new PaginationDto($page, $perPage)

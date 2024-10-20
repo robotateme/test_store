@@ -4,8 +4,8 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use JetBrains\PhpStorm\NoReturn;
-use Src\Domain\Actions\User\UserLoginAction;
-use Src\Infrastructure\Assemblers\User\UserLoginDtoAssembler;
+use Source\Domain\Actions\User\UserLoginAction;
+use Source\Infrastructure\Assemblers\User\UserLoginDtoAssembler;
 
 class Testing extends Command
 {

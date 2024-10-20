@@ -51,7 +51,7 @@
                         <a href="/" class="navigation__link">Home</a>
                     </li>
                     <li class="navigation__item">
-                        <a href="/cart" class="navigation__link">Cart</a>
+                        <a href="/basket" class="navigation__link">Cart</a>
                     </li>
                 </ul>
             </div>
@@ -128,7 +128,7 @@
                         <a href="/" class="navigation__link">Home</a>
                     </li>
                     <li class="navigation__item">
-                        <a href="/cart" class="navigation__link">Cart</a>
+                        <a href="/basket" class="navigation__link">Cart</a>
                     </li>
                 </ul>
             </nav>
@@ -138,12 +138,12 @@
                     <x-account-link></x-account-link>
                 </div>
 
-                <a href="/cart" class="header-tools__item header-tools__cart">
+                <a href="/basket" class="header-tools__item header-tools__cart">
                     <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <use href="#icon_cart" />
                     </svg>
-                    <x-cart-indicator></x-cart-indicator>
+                    <x-basket-indicator></x-basket-indicator>
                 </a>
             </div>
         </div>

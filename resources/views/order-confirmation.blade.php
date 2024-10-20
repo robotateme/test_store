@@ -308,7 +308,7 @@
               <a href="shop.blade.php" class="navigation__link">Shop</a>
             </li>
             <li class="navigation__item">
-              <a href="cart.blade.php" class="navigation__link">Cart</a>
+              <a href="basket.blade.php" class="navigation__link">Cart</a>
             </li>
             <li class="navigation__item">
               <a href="about.html" class="navigation__link">About</a>
@@ -397,7 +397,7 @@
               <a href="shop.blade.php" class="navigation__link">Shop</a>
             </li>
             <li class="navigation__item">
-              <a href="cart.blade.php" class="navigation__link">Cart</a>
+              <a href="basket.blade.php" class="navigation__link">Cart</a>
             </li>
             <li class="navigation__item">
               <a href="about.html" class="navigation__link">About</a>
@@ -470,7 +470,7 @@
             </svg>
           </a>
 
-          <a href="cart.blade.php" class="header-tools__item header-tools__cart">
+          <a href="basket.blade.php" class="header-tools__item header-tools__cart">
             <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <use href="#icon_cart" />
@@ -486,7 +486,7 @@
     <section class="shop-checkout container">
       <h2 class="page-title">Order Received</h2>
       <div class="checkout-steps">
-        <a href="cart.blade.php" class="checkout-steps__item active">
+        <a href="basket.blade.php" class="checkout-steps__item active">
           <span class="checkout-steps__item-number">01</span>
           <span class="checkout-steps__item-title">
             <span>Shopping Bag</span>
