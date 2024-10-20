@@ -2,10 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Dto\User\Request\UserLoginDto;
 use Illuminate\Console\Command;
-use Src\Core\Utils\PasswordHash;
-use Src\Domain\Actions\Product\ProductGetOneAction;
+use JetBrains\PhpStorm\NoReturn;
 use Src\Domain\Actions\User\UserLoginAction;
 use Src\Infrastructure\Assemblers\User\UserLoginDtoAssembler;
 
@@ -28,7 +26,7 @@ class Testing extends Command
     /**
      * Execute the console command.
      */
-    public function handle(UserLoginAction $action): void
+    #[NoReturn] public function handle(UserLoginAction $action): void
     {
         $userLoginDto = UserLoginDtoAssembler::fromArray([
             'email' => 'test@example.com', 'password' => 'password'

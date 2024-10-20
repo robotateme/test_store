@@ -20,7 +20,6 @@ readonly class HomePage extends BasePage implements HomePageInterface
     /**
      * @param  mixed  $request
      * @return Factory|View|Application
-     * @throws AssemblerException
      */
     public function render(Request $request): Factory|View|Application
     {

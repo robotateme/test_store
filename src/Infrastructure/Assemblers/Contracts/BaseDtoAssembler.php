@@ -7,7 +7,6 @@ use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use App\Dto\Contracts\BaseDtoCollection;
-use App\Dto\Contracts\DtoCollectionInterface;
 use App\Dto\Contracts\DtoInterface;
 use App\Dto\Pagination\Contracts\BasePaginationDto;
 use Src\Infrastructure\Assemblers\Exceptions\AssemblerException;
