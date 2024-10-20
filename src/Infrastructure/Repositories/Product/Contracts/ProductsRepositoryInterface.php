@@ -2,9 +2,9 @@
 
 namespace Src\Infrastructure\Repositories\Product\Contracts;
 
-use Src\Application\Dto\Contracts\BaseDto;
-use Src\Application\Dto\Contracts\BaseDtoCollection;
-use Src\Application\Dto\Pagination\Contracts\BasePaginationDto;
+use App\Dto\Contracts\BaseDto;
+use App\Dto\Contracts\BaseDtoCollection;
+use App\Dto\Pagination\Contracts\BasePaginationDto;
 use Src\Infrastructure\Repositories\Contracts\RepositoryInterface;
 
 interface ProductsRepositoryInterface extends RepositoryInterface

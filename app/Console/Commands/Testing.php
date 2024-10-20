@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Src\Application\Actions\Product\ProductGetOneAction;
+use Src\Domain\Actions\Product\ProductGetOneAction;
 
 class Testing extends Command
 {

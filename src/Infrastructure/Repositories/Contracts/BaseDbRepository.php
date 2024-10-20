@@ -6,8 +6,8 @@ use Closure;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Expression;
-use Src\Application\Dto\Pagination\Contracts\PaginationDtoInterface;
-use Src\Application\Dto\Pagination\Request\PaginationDto;
+use App\Dto\Pagination\Contracts\PaginationDtoInterface;
+use App\Dto\Pagination\Request\PaginationDto;
 use Src\Infrastructure\Repositories\Basket\Contracts\DbRepositoryInterface;
 
 class BaseDbRepository implements DbRepositoryInterface

@@ -8,7 +8,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
-use Src\Application\Actions\Product\ProductGetListAction;
+use Src\Domain\Actions\Product\ProductGetListAction;
 use Src\Infrastructure\Assemblers\Exceptions\AssemblerException;
 
 readonly class HomePage extends BasePage implements HomePageInterface

@@ -2,12 +2,12 @@
 
 namespace Src\Infrastructure\Repositories\Product;
 
-use Src\Application\Dto\Contracts\BaseDto;
-use Src\Application\Dto\Contracts\BaseDtoCollection;
-use Src\Application\Dto\Contracts\DtoCollectionInterface;
-use Src\Application\Dto\Pagination\Contracts\BasePaginationDto;
-use Src\Application\Dto\Pagination\Response\PaginationResultDto;
-use Src\Application\Dto\Product\Response\ProductListDto;
+use App\Dto\Contracts\BaseDto;
+use App\Dto\Contracts\BaseDtoCollection;
+use App\Dto\Contracts\DtoCollectionInterface;
+use App\Dto\Pagination\Contracts\BasePaginationDto;
+use App\Dto\Pagination\Response\PaginationResultDto;
+use App\Dto\Product\Response\ProductListDto;
 use Src\Infrastructure\Assemblers\Exceptions\AssemblerException;
 use Src\Infrastructure\Assemblers\Product\ProductDtoAssembler;
 use Src\Infrastructure\Assemblers\Product\ProductsListDtoAssembler;

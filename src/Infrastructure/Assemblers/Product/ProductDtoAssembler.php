@@ -5,9 +5,9 @@ namespace Src\Infrastructure\Assemblers\Product;
 use App\Models\Product;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
-use Src\Application\Dto\Contracts\BaseDto;
-use Src\Application\Dto\Contracts\DtoInterface;
-use Src\Application\Dto\Product\Response\ProductDto;
+use App\Dto\Contracts\BaseDto;
+use App\Dto\Contracts\DtoInterface;
+use App\Dto\Product\Response\ProductDto;
 use Src\Infrastructure\Assemblers\Contracts\BaseDtoAssembler;
 use Src\Infrastructure\Assemblers\Exceptions\AssemblerException;
 

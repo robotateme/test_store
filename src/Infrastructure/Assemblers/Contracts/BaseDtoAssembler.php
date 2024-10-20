@@ -6,10 +6,10 @@ use Exception;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
-use Src\Application\Dto\Contracts\BaseDtoCollection;
-use Src\Application\Dto\Contracts\DtoCollectionInterface;
-use Src\Application\Dto\Contracts\DtoInterface;
-use Src\Application\Dto\Pagination\Contracts\BasePaginationDto;
+use App\Dto\Contracts\BaseDtoCollection;
+use App\Dto\Contracts\DtoCollectionInterface;
+use App\Dto\Contracts\DtoInterface;
+use App\Dto\Pagination\Contracts\BasePaginationDto;
 use Src\Infrastructure\Assemblers\Exceptions\AssemblerException;
 
 abstract class BaseDtoAssembler implements AssemblerInterface

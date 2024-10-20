@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Src\Application\Actions\Contracts\ActionInterface;
-use Src\Application\Actions\Product\ProductGetListAction;
-use Src\Application\Actions\Product\ProductGetOneAction;
+use Src\Domain\Actions\Contracts\ActionInterface;
+use Src\Domain\Actions\Product\ProductGetListAction;
+use Src\Domain\Actions\Product\ProductGetOneAction;
 
 class ActionsProvider extends ServiceProvider
 {
