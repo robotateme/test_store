@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Infrastructure\Assemblers\Product;
+namespace Source\Infrastructure\Assemblers\Product;
 class ProductsListDtoAssembler extends ProductDtoAssembler
 {
 

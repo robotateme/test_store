@@ -3,11 +3,11 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Src\Domain\Actions\Contracts\ActionInterface;
-use Src\Domain\Actions\Product\ProductGetListAction;
-use Src\Domain\Actions\Product\ProductGetOneAction;
-use Src\Domain\Actions\User\Contracts\UserLoginActionInterface;
-use Src\Domain\Actions\User\UserLoginAction;
+use Source\Domain\Actions\Contracts\ActionInterface;
+use Source\Domain\Actions\Product\ProductGetListAction;
+use Source\Domain\Actions\Product\ProductGetOneAction;
+use Source\Domain\Actions\User\Contracts\UserLoginActionInterface;
+use Source\Domain\Actions\User\UserLoginAction;
 
 class ActionsProvider extends ServiceProvider
 {

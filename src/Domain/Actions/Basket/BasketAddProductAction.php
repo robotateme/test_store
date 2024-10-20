@@ -1,8 +1,8 @@
 <?php
 
-namespace Src\Domain\Actions\Basket;
+namespace Source\Domain\Actions\Basket;
 
-use Src\Domain\Actions\Contracts\ActionInterface;
+use Source\Domain\Actions\Contracts\ActionInterface;
 
 class BasketAddProductAction implements ActionInterface
 {

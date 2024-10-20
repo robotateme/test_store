@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Domain\ValueObjects;
+namespace Source\Domain\ValueObjects;
 
 class ProductsTotalValue
 {

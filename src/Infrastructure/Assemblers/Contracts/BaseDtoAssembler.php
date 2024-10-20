@@ -1,15 +1,15 @@
 <?php
 
-namespace Src\Infrastructure\Assemblers\Contracts;
+namespace Source\Infrastructure\Assemblers\Contracts;
 
 use Exception;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
-use App\Dto\Contracts\BaseDtoCollection;
-use App\Dto\Contracts\DtoInterface;
-use App\Dto\Pagination\Contracts\BasePaginationDto;
-use Src\Infrastructure\Assemblers\Exceptions\AssemblerException;
+use Source\Domain\Dto\Contracts\BaseDtoCollection;
+use Source\Domain\Dto\Contracts\DtoInterface;
+use Source\Domain\Dto\Pagination\Contracts\BasePaginationDto;
+use Source\Infrastructure\Assemblers\Exceptions\AssemblerException;
 
 abstract class BaseDtoAssembler implements AssemblerInterface
 {

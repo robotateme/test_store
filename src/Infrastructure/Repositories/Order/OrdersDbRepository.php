@@ -1,9 +1,9 @@
 <?php
 
-namespace Src\Infrastructure\Repositories\Order;
+namespace Source\Infrastructure\Repositories\Order;
 
-use Src\Infrastructure\Repositories\Contracts\BaseDbRepository;
-use Src\Infrastructure\Repositories\Order\Contracts\OrdersRepositoryInterface;
+use Source\Infrastructure\Repositories\Contracts\BaseDbRepository;
+use Source\Infrastructure\Repositories\Order\Contracts\OrdersRepositoryInterface;
 
 class OrdersDbRepository extends BaseDbRepository implements OrdersRepositoryInterface
 {

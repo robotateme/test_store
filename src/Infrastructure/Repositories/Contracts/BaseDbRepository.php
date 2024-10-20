@@ -1,14 +1,14 @@
 <?php
 
-namespace Src\Infrastructure\Repositories\Contracts;
+namespace Source\Infrastructure\Repositories\Contracts;
 
 use Closure;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Expression;
-use App\Dto\Pagination\Contracts\PaginationDtoInterface;
-use App\Dto\Pagination\Request\PaginationDto;
-use Src\Infrastructure\Repositories\Basket\Contracts\DbRepositoryInterface;
+use Source\Domain\Dto\Pagination\Contracts\PaginationDtoInterface;
+use Source\Domain\Dto\Pagination\Request\PaginationDto;
+use Source\Infrastructure\Repositories\Basket\Contracts\DbRepositoryInterface;
 
 class BaseDbRepository implements DbRepositoryInterface
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Src\Infrastructure\Assemblers\Contracts;
+namespace Source\Infrastructure\Assemblers\Contracts;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
-use App\Dto\Contracts\BaseDtoCollection;
-use App\Dto\Contracts\DtoCollectionInterface;
-use App\Dto\Contracts\DtoInterface;
-use App\Dto\Pagination\Contracts\BasePaginationDto;
+use Source\Domain\Dto\Contracts\BaseDtoCollection;
+use Source\Domain\Dto\Contracts\DtoCollectionInterface;
+use Source\Domain\Dto\Contracts\DtoInterface;
+use Source\Domain\Dto\Pagination\Contracts\BasePaginationDto;
 
 interface AssemblerInterface
 {

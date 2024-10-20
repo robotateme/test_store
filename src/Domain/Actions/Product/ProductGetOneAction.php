@@ -1,10 +1,10 @@
 <?php
 
-namespace Src\Domain\Actions\Product;
+namespace Source\Domain\Actions\Product;
 
-use App\Dto\Contracts\BaseDto;
-use Src\Domain\Actions\Product\Contracts\ProductGetOneActionInterface;
-use Src\Infrastructure\Repositories\Product\Contracts\ProductsRepositoryInterface;
+use Source\Domain\Actions\Product\Contracts\ProductGetOneActionInterface;
+use Source\Domain\Dto\Contracts\BaseDto;
+use Source\Infrastructure\Repositories\Product\Contracts\ProductsRepositoryInterface;
 
 readonly class ProductGetOneAction implements ProductGetOneActionInterface
 {

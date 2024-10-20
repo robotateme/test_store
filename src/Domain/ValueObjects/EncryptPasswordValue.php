@@ -1,9 +1,9 @@
 <?php
 
-namespace Src\Domain\ValueObjects;
+namespace Source\Domain\ValueObjects;
 
-use Src\Core\Utils\PasswordHash;
-use Src\Domain\Contracts\ValueObjectInterface;
+use Source\Core\Utils\PasswordHash;
+use Source\Domain\Contracts\ValueObjectInterface;
 
 readonly class EncryptPasswordValue implements ValueObjectInterface
 {

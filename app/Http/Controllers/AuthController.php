@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Dto\User\Response\UserLoginResultDto;
 use App\Http\Requests\UserLoginRequest;
 use Auth;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Routing\Redirector;
-use Src\Domain\Actions\Exceptions\NotFoundException;
-use Src\Domain\Actions\User\Contracts\UserLoginActionInterface;
-use Src\Domain\Actions\User\UserLoginAction;
-use Src\Infrastructure\Assemblers\User\UserLoginDtoAssembler;
+use Source\Domain\Actions\Exceptions\NotFoundException;
+use Source\Domain\Actions\User\Contracts\UserLoginActionInterface;
+use Source\Domain\Actions\User\UserLoginAction;
+use Source\Domain\Dto\User\Response\UserLoginResultDto;
+use Source\Infrastructure\Assemblers\User\UserLoginDtoAssembler;
 
 class AuthController extends Controller
 {

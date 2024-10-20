@@ -1,12 +1,12 @@
 <?php
 
-namespace Src\Domain\Actions\Product;
+namespace Source\Domain\Actions\Product;
 
 
-use App\Dto\Contracts\BaseDtoCollection;
-use App\Dto\Pagination\Request\PaginationDto;
-use Src\Domain\Actions\Product\Contracts\ProductsGetListActionInterface;
-use Src\Infrastructure\Repositories\Product\Contracts\ProductsRepositoryInterface;
+use Source\Domain\Actions\Product\Contracts\ProductsGetListActionInterface;
+use Source\Domain\Dto\Contracts\BaseDtoCollection;
+use Source\Domain\Dto\Pagination\Request\PaginationDto;
+use Source\Infrastructure\Repositories\Product\Contracts\ProductsRepositoryInterface;
 
 readonly class ProductGetListAction implements ProductsGetListActionInterface
 {
@@ -14,12 +14,11 @@ readonly class ProductGetListAction implements ProductsGetListActionInterface
     {}
 
     /**
-     * @param  int  $page
-     * @param  int  $perPage
+     * @param  PaginationDto  $paginationDto
      * @return BaseDtoCollection
      */
-    public function handle(int $page, int $perPage): BaseDtoCollection
+    public function handle(PaginationDto $paginationDto): BaseDtoCollection
     {
-        return $this->products->getList(new PaginationDto($page, $perPage));
+        return $this->products->getList($paginationDto);
     }
 }

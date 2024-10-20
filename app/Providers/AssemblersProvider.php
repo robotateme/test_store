@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Src\Infrastructure\Assemblers\Contracts\AssemblerInterface;
-use Src\Infrastructure\Assemblers\Product\ProductDtoAssembler;
+use Source\Infrastructure\Assemblers\Contracts\AssemblerInterface;
+use Source\Infrastructure\Assemblers\Product\ProductDtoAssembler;
 
 class AssemblersProvider extends ServiceProvider
 {

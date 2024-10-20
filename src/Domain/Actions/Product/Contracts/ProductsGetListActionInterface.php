@@ -1,10 +1,11 @@
 <?php
 
-namespace Src\Domain\Actions\Product\Contracts;
+namespace Source\Domain\Actions\Product\Contracts;
 
-use Src\Domain\Actions\Contracts\ActionInterface;
+use Source\Domain\Actions\Contracts\ActionInterface;
+use Source\Domain\Dto\Pagination\Request\PaginationDto;
 
 interface ProductsGetListActionInterface extends ActionInterface
 {
-    public function handle(int $page, int $perPage);
+    public function handle(PaginationDto $paginationDto);
 }

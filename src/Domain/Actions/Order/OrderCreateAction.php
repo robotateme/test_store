@@ -1,8 +1,8 @@
 <?php
-namespace Src\Domain\Actions\Order;
+namespace Source\Domain\Actions\Order;
 
-use Src\Domain\Actions\Order\Contracts\OrderCreateActionInterface;
-use Src\Infrastructure\Repositories\Order\Contracts\OrdersRepositoryInterface;
+use Source\Domain\Actions\Order\Contracts\OrderCreateActionInterface;
+use Source\Infrastructure\Repositories\Order\Contracts\OrdersRepositoryInterface;
 
 readonly class OrderCreateAction implements OrderCreateActionInterface
 {

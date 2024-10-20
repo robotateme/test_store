@@ -1,13 +1,12 @@
 <?php
 
-namespace Src\Infrastructure\Repositories\User;
+namespace Source\Infrastructure\Repositories\User;
 
-use App\Dto\User\Response\UserDto;
-use Src\Domain\Actions\Exceptions\NotFoundException;
-use Src\Infrastructure\Assemblers\User\UserDtoAssembler;
-use Src\Infrastructure\Repositories\Contracts\BaseDbRepository;
-use Src\Infrastructure\Repositories\Exceptions\ResourceNotFoundException;
-use Src\Infrastructure\Repositories\User\Contracts\UserRepositoryInterface;
+use Source\Domain\Dto\User\Response\UserDto;
+use Source\Infrastructure\Assemblers\User\UserDtoAssembler;
+use Source\Infrastructure\Repositories\Contracts\BaseDbRepository;
+use Source\Infrastructure\Repositories\Exceptions\ResourceNotFoundException;
+use Source\Infrastructure\Repositories\User\Contracts\UserRepositoryInterface;
 
 class UsersDbRepository extends BaseDbRepository implements UserRepositoryInterface
 {

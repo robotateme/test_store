@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Infrastructure\Repositories\Exceptions;
+namespace Source\Infrastructure\Repositories\Exceptions;
 
 use Exception;
 

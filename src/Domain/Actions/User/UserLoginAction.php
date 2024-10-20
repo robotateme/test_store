@@ -1,17 +1,17 @@
 <?php
 
-namespace Src\Domain\Actions\User;
+namespace Source\Domain\Actions\User;
 
-use App\Dto\Contracts\BaseDto;
-use App\Dto\User\Request\UserLoginDto;
-use App\Dto\User\Response\UserDto;
-use App\Dto\User\Response\UserLoginResultDto;
-use Src\Core\Utils\PasswordHash;
-use Src\Domain\Actions\Exceptions\NotFoundException;
-use Src\Domain\Actions\User\Contracts\UserLoginActionInterface;
-use Src\Infrastructure\Repositories\Exceptions\ResourceNotFoundException;
-use Src\Infrastructure\Repositories\User\Contracts\UserRepositoryInterface;
-use Src\Infrastructure\Repositories\User\UsersDbRepository;
+use Source\Core\Utils\PasswordHash;
+use Source\Domain\Actions\Exceptions\NotFoundException;
+use Source\Domain\Actions\User\Contracts\UserLoginActionInterface;
+use Source\Domain\Dto\Contracts\BaseDto;
+use Source\Domain\Dto\User\Request\UserLoginDto;
+use Source\Domain\Dto\User\Response\UserDto;
+use Source\Domain\Dto\User\Response\UserLoginResultDto;
+use Source\Infrastructure\Repositories\Exceptions\ResourceNotFoundException;
+use Source\Infrastructure\Repositories\User\Contracts\UserRepositoryInterface;
+use Source\Infrastructure\Repositories\User\UsersDbRepository;
 
 readonly class UserLoginAction implements UserLoginActionInterface
 {

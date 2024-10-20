@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Infrastructure\Assemblers\Exceptions;
+namespace Source\Infrastructure\Assemblers\Exceptions;
 
 use Exception;
 

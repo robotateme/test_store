@@ -8,8 +8,9 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
-use Src\Domain\Actions\Product\ProductGetListAction;
-use Src\Infrastructure\Assemblers\Exceptions\AssemblerException;
+use Source\Domain\Actions\Product\ProductGetListAction;
+use Source\Domain\Dto\Pagination\Request\PaginationDto;
+use Source\Infrastructure\Assemblers\Exceptions\AssemblerException;
 
 readonly class HomePage extends BasePage implements HomePageInterface
 {
@@ -23,11 +24,17 @@ readonly class HomePage extends BasePage implements HomePageInterface
      */
     public function render(Request $request): Factory|View|Application
     {
+        $perPage = config('site.home.pagination.products_per_page', 20);
         $page = $request->get('page', 1);
-        $perPage = $request->get('page', 50);
+        $perPage = $request->get('page', $perPage);
+
+        $productsListDto = $this->productGetListAction->handle(
+            new PaginationDto($page, $perPage)
+        );
 
         return view('home', [
-            'products' => $this->productGetListAction->handle($page, $perPage)
+            'products' => $productsListDto->items,
+            'pagination' => $productsListDto->paginationDto
         ]);
     }
 }

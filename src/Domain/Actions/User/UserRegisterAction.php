@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Domain\Actions\User;
+namespace Source\Domain\Actions\User;
 
 class UserRegisterAction
 {

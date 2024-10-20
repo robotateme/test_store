@@ -6,10 +6,10 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
-use Src\Infrastructure\Repositories\Product\Contracts\ProductsRepositoryInterface;
-use Src\Infrastructure\Repositories\Product\ProductsDbRepository;
-use Src\Infrastructure\Repositories\User\Contracts\UserRepositoryInterface;
-use Src\Infrastructure\Repositories\User\UsersDbRepository;
+use Source\Infrastructure\Repositories\Product\Contracts\ProductsRepositoryInterface;
+use Source\Infrastructure\Repositories\Product\ProductsDbRepository;
+use Source\Infrastructure\Repositories\User\Contracts\UserRepositoryInterface;
+use Source\Infrastructure\Repositories\User\UsersDbRepository;
 
 class RepositoriesProvider extends ServiceProvider
 {

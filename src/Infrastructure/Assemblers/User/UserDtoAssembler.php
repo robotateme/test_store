@@ -1,11 +1,11 @@
 <?php
 
-namespace Src\Infrastructure\Assemblers\User;
+namespace Source\Infrastructure\Assemblers\User;
 
-use App\Dto\User\Response\UserDto;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use Src\Infrastructure\Assemblers\Contracts\BaseDtoAssembler;
+use Source\Domain\Dto\User\Response\UserDto;
+use Source\Infrastructure\Assemblers\Contracts\BaseDtoAssembler;
 
 class UserDtoAssembler extends BaseDtoAssembler
 {

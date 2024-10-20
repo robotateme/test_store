@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Domain\Contracts;
+namespace Source\Domain\Contracts;
 
 interface ValueObjectInterface
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Src\Infrastructure\Repositories\Product\Contracts;
+namespace Source\Infrastructure\Repositories\Product\Contracts;
 
-use App\Dto\Contracts\BaseDto;
-use App\Dto\Contracts\BaseDtoCollection;
-use App\Dto\Pagination\Contracts\BasePaginationDto;
-use Src\Infrastructure\Repositories\Contracts\RepositoryInterface;
+use Source\Domain\Dto\Contracts\BaseDto;
+use Source\Domain\Dto\Contracts\BaseDtoCollection;
+use Source\Domain\Dto\Pagination\Contracts\BasePaginationDto;
+use Source\Infrastructure\Repositories\Contracts\RepositoryInterface;
 
 interface ProductsRepositoryInterface extends RepositoryInterface
 {

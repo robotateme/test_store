@@ -1,8 +1,8 @@
 <?php
 
-namespace Src\Domain\ValueObjects;
+namespace Source\Domain\ValueObjects;
 
-use Src\Domain\Contracts\ValueObjectInterface;
+use Source\Domain\Contracts\ValueObjectInterface;
 
 class ProductAliasValue implements  ValueObjectInterface
 {

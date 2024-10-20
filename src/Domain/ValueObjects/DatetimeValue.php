@@ -1,9 +1,9 @@
 <?php
 
-namespace Src\Domain\ValueObjects;
+namespace Source\Domain\ValueObjects;
 
 use DateTime;
-use Src\Domain\Contracts\ValueObjectInterface;
+use Source\Domain\Contracts\ValueObjectInterface;
 
 class DatetimeValue implements ValueObjectInterface
 {

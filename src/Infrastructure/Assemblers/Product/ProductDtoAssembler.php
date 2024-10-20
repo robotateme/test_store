@@ -1,15 +1,15 @@
 <?php
 
-namespace Src\Infrastructure\Assemblers\Product;
+namespace Source\Infrastructure\Assemblers\Product;
 
 use App\Models\Product;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
-use App\Dto\Contracts\BaseDto;
-use App\Dto\Contracts\DtoInterface;
-use App\Dto\Product\Response\ProductDto;
-use Src\Infrastructure\Assemblers\Contracts\BaseDtoAssembler;
-use Src\Infrastructure\Assemblers\Exceptions\AssemblerException;
+use Source\Domain\Dto\Contracts\BaseDto;
+use Source\Domain\Dto\Contracts\DtoInterface;
+use Source\Domain\Dto\Product\Response\ProductDto;
+use Source\Infrastructure\Assemblers\Contracts\BaseDtoAssembler;
+use Source\Infrastructure\Assemblers\Exceptions\AssemblerException;
 
 class ProductDtoAssembler extends BaseDtoAssembler
 {

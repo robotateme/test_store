@@ -1,19 +1,19 @@
 <?php
 
-namespace Src\Infrastructure\Repositories\Product;
+namespace Source\Infrastructure\Repositories\Product;
 
-use App\Dto\Contracts\BaseDto;
-use App\Dto\Contracts\BaseDtoCollection;
-use App\Dto\Contracts\DtoCollectionInterface;
-use App\Dto\Pagination\Contracts\BasePaginationDto;
-use App\Dto\Pagination\Response\PaginationResultDto;
-use App\Dto\Product\Response\ProductListDto;
-use Src\Infrastructure\Assemblers\Exceptions\AssemblerException;
-use Src\Infrastructure\Assemblers\Product\ProductDtoAssembler;
-use Src\Infrastructure\Assemblers\Product\ProductsListDtoAssembler;
-use Src\Infrastructure\Repositories\Contracts\BaseDbRepository;
-use Src\Infrastructure\Repositories\Exceptions\ResourceNotFoundException;
-use Src\Infrastructure\Repositories\Product\Contracts\ProductsRepositoryInterface;
+use Source\Domain\Dto\Contracts\BaseDto;
+use Source\Domain\Dto\Contracts\BaseDtoCollection;
+use Source\Domain\Dto\Contracts\DtoCollectionInterface;
+use Source\Domain\Dto\Pagination\Contracts\BasePaginationDto;
+use Source\Domain\Dto\Pagination\Response\PaginationResultDto;
+use Source\Domain\Dto\Product\Response\ProductListDto;
+use Source\Infrastructure\Assemblers\Exceptions\AssemblerException;
+use Source\Infrastructure\Assemblers\Product\ProductDtoAssembler;
+use Source\Infrastructure\Assemblers\Product\ProductsListDtoAssembler;
+use Source\Infrastructure\Repositories\Contracts\BaseDbRepository;
+use Source\Infrastructure\Repositories\Exceptions\ResourceNotFoundException;
+use Source\Infrastructure\Repositories\Product\Contracts\ProductsRepositoryInterface;
 
 class ProductsDbRepository extends BaseDbRepository implements ProductsRepositoryInterface
 {

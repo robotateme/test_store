@@ -1,8 +1,8 @@
 <?php
 
-namespace Src\Domain\Actions\Exceptions;
+namespace Source\Domain\Actions\Exceptions;
 
-use Src\Domain\Actions\Exceptions\ActionException;
+use Source\Domain\Actions\Exceptions\ActionException;
 
 class NotFoundException extends ActionException
 {

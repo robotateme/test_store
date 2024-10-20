@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Core\Utils;
+namespace Source\Core\Utils;
 
 class PasswordHash
 {

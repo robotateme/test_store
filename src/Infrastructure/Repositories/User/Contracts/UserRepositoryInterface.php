@@ -1,9 +1,9 @@
 <?php
 
-namespace Src\Infrastructure\Repositories\User\Contracts;
+namespace Source\Infrastructure\Repositories\User\Contracts;
 
-use App\Dto\Contracts\BaseDto;
-use Src\Infrastructure\Repositories\Contracts\RepositoryInterface;
+use Source\Domain\Dto\Contracts\BaseDto;
+use Source\Infrastructure\Repositories\Contracts\RepositoryInterface;
 
 interface UserRepositoryInterface extends RepositoryInterface
 {

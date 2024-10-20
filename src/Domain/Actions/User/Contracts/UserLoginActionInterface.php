@@ -1,9 +1,9 @@
 <?php
 
-namespace Src\Domain\Actions\User\Contracts;
+namespace Source\Domain\Actions\User\Contracts;
 
-use App\Dto\Contracts\BaseDto;
-use Src\Domain\Actions\Contracts\ActionInterface;
+use Source\Domain\Actions\Contracts\ActionInterface;
+use Source\Domain\Dto\Contracts\BaseDto;
 
 interface UserLoginActionInterface extends ActionInterface
 {

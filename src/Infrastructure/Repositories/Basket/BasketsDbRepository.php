@@ -1,8 +1,8 @@
 <?php
 
-namespace Src\Infrastructure\Repositories\Basket;
+namespace Source\Infrastructure\Repositories\Basket;
 
-use Src\Infrastructure\Repositories\Contracts;
+use Source\Infrastructure\Repositories\Contracts;
 
 class BasketsDbRepository extends Contracts\BaseDbRepository
 {

@@ -1,13 +1,12 @@
 <?php
 
-namespace Src\Infrastructure\Assemblers\User;
+namespace Source\Infrastructure\Assemblers\User;
 
-use App\Dto\Contracts\BaseDto;
-use App\Dto\User\Request\UserLoginDto;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use Src\Domain\ValueObjects\EncryptPasswordValue;
-use Src\Infrastructure\Assemblers\Contracts\BaseDtoAssembler;
+use Source\Domain\Dto\Contracts\BaseDto;
+use Source\Domain\Dto\User\Request\UserLoginDto;
+use Source\Infrastructure\Assemblers\Contracts\BaseDtoAssembler;
 
 class UserLoginDtoAssembler extends BaseDtoAssembler
 {

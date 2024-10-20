@@ -1,9 +1,9 @@
 <?php
 
-namespace Src\Domain\Actions\Product\Contracts;
+namespace Source\Domain\Actions\Product\Contracts;
 
-use App\Dto\Contracts\BaseDto;
-use Src\Domain\Actions\Contracts\ActionInterface;
+use Source\Domain\Actions\Contracts\ActionInterface;
+use Source\Domain\Dto\Contracts\BaseDto;
 
 interface ProductGetOneActionInterface extends ActionInterface
 {

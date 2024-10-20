@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Domain\Actions\Contracts;
+namespace Source\Domain\Actions\Contracts;
 
 
 interface ActionInterface

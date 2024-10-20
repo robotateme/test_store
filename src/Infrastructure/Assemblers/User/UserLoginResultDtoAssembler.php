@@ -1,13 +1,13 @@
 <?php
 
-namespace Src\Infrastructure\Assemblers\User;
+namespace Source\Infrastructure\Assemblers\User;
 
-use App\Dto\Contracts\BaseDto;
-use App\Dto\Contracts\DtoInterface;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use RuntimeException;
-use Src\Infrastructure\Assemblers\Contracts\BaseDtoAssembler;
+use Source\Domain\Dto\Contracts\BaseDto;
+use Source\Domain\Dto\Contracts\DtoInterface;
+use Source\Infrastructure\Assemblers\Contracts\BaseDtoAssembler;
 
 class UserLoginResultDtoAssembler extends BaseDtoAssembler
 {

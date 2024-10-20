@@ -1,8 +1,8 @@
 <?php
 
-namespace Src\Infrastructure\Repositories\Order\Contracts;
+namespace Source\Infrastructure\Repositories\Order\Contracts;
 
-use Src\Infrastructure\Repositories\Contracts\RepositoryInterface;
+use Source\Infrastructure\Repositories\Contracts\RepositoryInterface;
 
 interface OrdersRepositoryInterface extends RepositoryInterface
 {

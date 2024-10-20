@@ -1,7 +1,7 @@
 <?php
-namespace Src\Domain\Actions\Order\Contracts;
+namespace Source\Domain\Actions\Order\Contracts;
 
-use Src\Domain\Actions\Contracts\ActionInterface;
+use Source\Domain\Actions\Contracts\ActionInterface;
 
 interface OrderCreateActionInterface extends ActionInterface
 {

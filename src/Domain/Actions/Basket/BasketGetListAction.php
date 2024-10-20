@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Domain\Actions\Basket;
+namespace Source\Domain\Actions\Basket;
 
 class BasketGetListAction
 {
