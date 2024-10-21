@@ -2,9 +2,13 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Product;
+use App\View\Components\Pagination;
 use Illuminate\Console\Command;
 use JetBrains\PhpStorm\NoReturn;
+use Source\Domain\Actions\Product\ProductGetListAction;
 use Source\Domain\Actions\User\UserLoginAction;
+use Source\Domain\Dto\Pagination\Request\PaginationDto;
 use Source\Infrastructure\Assemblers\User\UserLoginDtoAssembler;
 
 class Testing extends Command
@@ -26,13 +30,8 @@ class Testing extends Command
     /**
      * Execute the console command.
      */
-    #[NoReturn] public function handle(UserLoginAction $action): void
+    #[NoReturn] public function handle(ProductGetListAction $action): void
     {
-        $userLoginDto = UserLoginDtoAssembler::fromArray([
-            'email' => 'test@example.com', 'password' => 'password'
-        ]);
-
-        dd($action->handle($userLoginDto));
-//        dd(PasswordHash::passwordHashVerify('password', PasswordHash::hashPasswordBcrypt('password')));
+        dd(Product::factory(10)->make()->toArray());
     }
 }

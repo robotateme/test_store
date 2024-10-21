@@ -10,7 +10,7 @@ readonly class ProductDto extends BaseDto
         public int $id,
         public string $title,
         public float $price,
-        public string $createdAt,
+        public ?string $createdAt,
     ) {}
 
     public function toArray(): array

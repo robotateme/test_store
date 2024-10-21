@@ -28,7 +28,7 @@ class ProductDtoAssembler extends BaseDtoAssembler
 
     /**
      * @param  array  $data
-     * @return DtoInterface
+     * @return BaseDto
      * @throws AssemblerException
      */
     public static function fromArray(array $data): BaseDto
