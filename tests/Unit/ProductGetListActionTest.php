@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use App\Models\Product;
-use Database\Factories\ProductFactory;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Database\Eloquent\Builder;
 use JetBrains\PhpStorm\NoReturn;
@@ -35,6 +34,7 @@ class ProductGetListActionTest extends TestCase
 
         /** @var ProductGetListAction $action */
         $action = $this->app->make(ProductGetListAction::class);
+        $action->handle($paginationDto);
         $this->assertTrue(true);
     }
 
