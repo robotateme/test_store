@@ -11,12 +11,13 @@ Route::get('/basket', [BasketController::class, 'index'])->name('basket.index');
 Route::post('/basket/add', [BasketController::class, 'store'])->name('basket.index');
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 
 Route::get('/product/details', function () {
     return view('details');
 });
 Route::get('/account/orders', function () {
     return view('account-orders');
-});
+})->name('account.orders')
+    ->middleware('auth');
 
