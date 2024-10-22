@@ -4,9 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Source\Domain\Actions\Basket\BasketAddProductAction;
-use Source\Domain\Actions\Basket\BasketGetListAction;
+use Source\Domain\Actions\Basket\BasketGetPositionsAction;
 use Source\Domain\Actions\Basket\Contracts\BasketAddProductActionInterface;
-use Source\Domain\Actions\Basket\Contracts\BasketGetListActionInterface;
+use Source\Domain\Actions\Basket\Contracts\BasketGetPositionsActionInterface;
 use Source\Domain\Actions\Contracts\ActionInterface;
 use Source\Domain\Actions\Product\Contracts\ProductGetOneActionInterface;
 use Source\Domain\Actions\Product\Contracts\ProductsGetListActionInterface;
@@ -26,7 +26,7 @@ class ActionsProvider extends ServiceProvider
         $this->app->bind(ProductGetOneActionInterface::class, ProductGetOneAction::class);
         $this->app->bind(UserLoginActionInterface::class, UserLoginAction::class);
         $this->app->bind(BasketAddProductActionInterface::class, BasketAddProductAction::class);
-        $this->app->bind(BasketGetListActionInterface::class, BasketGetListAction::class);
+        $this->app->bind(BasketGetPositionsActionInterface::class, BasketGetPositionsAction::class);
     }
 
     /**

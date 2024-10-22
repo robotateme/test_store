@@ -4,6 +4,7 @@ namespace Source\Infrastructure\Repositories\Basket\Contracts;
 
 use Source\Domain\Dto\Basket\Request\BasketAddProductDto;
 use Source\Domain\Dto\Contracts\BaseDto;
+use Source\Domain\Dto\Contracts\BaseDtoCollection;
 use Source\Domain\Dto\Contracts\DtoInterface;
 use Source\Infrastructure\Repositories\Contracts\RepositoryInterface;
 
@@ -14,4 +15,11 @@ interface BasketsRepositoryInterface extends RepositoryInterface
      * @return BaseDto
      */
     public function create(BasketAddProductDto $addProductDto): DtoInterface;
+
+    /**
+     * @param  string  $sessionId
+     * @param  int|null  $userId
+     * @return BaseDtoCollection
+     */
+    public function getPositions(string $sessionId, int $userId = null): BaseDtoCollection;
 }

@@ -3,8 +3,6 @@
 namespace Source\Infrastructure\Repositories\Basket;
 
 use App\Models\Product;
-use Closure;
-use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Builder;
 use Source\Domain\Dto\Basket\Request\BasketAddProductDto;
 use Source\Domain\Dto\Basket\Response\BasketPositionDto;
@@ -22,6 +20,7 @@ class BasketsDbRepository extends BaseDbRepository implements BasketsRepositoryI
     /**
      * @param  BasketAddProductDto  $addProductDto
      * @return BasketPositionDto
+     * @throws AssemblerException
      */
     public function create(BasketAddProductDto $addProductDto): DtoInterface
     {
@@ -34,17 +33,15 @@ class BasketsDbRepository extends BaseDbRepository implements BasketsRepositoryI
     /**
      * @throws AssemblerException
      */
-    public function getPositions(int $productId, string $sessionId, int $userId = null): BaseDtoCollection
+    public function getPositions(string $sessionId, int $userId = null): BaseDtoCollection
     {
-        $positions = $this->query(where: function (Builder $builder) use ($productId, $userId, $sessionId) {
-            $builder->where('product_id', $productId);
+        $positions = $this->query(where: function (Builder $builder) use ($userId, $sessionId) {
             $builder->when(!is_null($userId), function (Builder $builder) use ($userId) {
                 return $builder->where('user_id', $userId);
             });
             $builder->when(is_null($userId), function (Builder $builder) use ($sessionId) {
                 return $builder->where('session_id', $sessionId);
             });
-
             return $builder;
         })->with('product')->get();
 
