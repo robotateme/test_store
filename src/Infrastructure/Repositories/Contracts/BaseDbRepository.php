@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Expression;
 use Source\Domain\Dto\Pagination\Contracts\PaginationDtoInterface;
 use Source\Domain\Dto\Pagination\Request\PaginationDto;
-use Source\Infrastructure\Repositories\Basket\Contracts\DbRepositoryInterface;
 
 class BaseDbRepository implements DbRepositoryInterface
 {
@@ -16,12 +15,13 @@ class BaseDbRepository implements DbRepositoryInterface
      * @param  Model  $model
      */
     public function __construct(private readonly Model $model)
-    {}
+    {
+    }
 
     /**
      * @return Builder
      */
-    private function getBuilder(): Builder
+    protected function getBuilder(): Builder
     {
         return $this->model->newModelQuery();
     }

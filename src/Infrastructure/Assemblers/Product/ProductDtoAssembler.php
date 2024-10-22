@@ -6,7 +6,6 @@ use App\Models\Product;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Source\Domain\Dto\Contracts\BaseDto;
-use Source\Domain\Dto\Contracts\DtoInterface;
 use Source\Domain\Dto\Product\Response\ProductDto;
 use Source\Infrastructure\Assemblers\Contracts\BaseDtoAssembler;
 use Source\Infrastructure\Assemblers\Exceptions\AssemblerException;

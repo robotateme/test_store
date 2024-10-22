@@ -2,7 +2,9 @@
 
 namespace Source\Domain\Actions\Basket;
 
-class BasketGetListAction
+use Source\Domain\Actions\Basket\Contracts\BasketGetListActionInterface;
+
+class BasketGetListAction implements BasketGetListActionInterface
 {
 
 }

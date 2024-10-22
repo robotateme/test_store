@@ -2,13 +2,29 @@
 
 namespace Source\Domain\Actions\Basket;
 
-use Source\Domain\Actions\Contracts\ActionInterface;
+use Source\Domain\Actions\Basket\Contracts\BasketAddProductActionInterface;
+use Source\Domain\Dto\Basket\Request\BasketAddProductDto;
+use Source\Domain\Dto\Contracts\BaseDto;
+use Source\Infrastructure\Repositories\Basket\BasketsDbRepository;
+use Source\Infrastructure\Repositories\Basket\Contracts\BasketsRepositoryInterface;
 
-class BasketAddProductAction implements ActionInterface
+readonly class BasketAddProductAction implements BasketAddProductActionInterface
 {
 
-    public function handle()
+    /**
+     * @param  BasketsDbRepository  $basketsRepository
+     */
+    public function __construct(private BasketsRepositoryInterface $basketsRepository)
     {
-        // TODO: Implement handle() method.
+    }
+
+    public function handle(BasketAddProductDto $dto): BaseDto
+    {
+        $basketPosition = $this->basketsRepository->create($dto);
+        dd($this->basketsRepository->getPositions(
+            $basketPosition->productId,
+            $dto->sessionId,
+            $dto->userId
+        ));
     }
 }

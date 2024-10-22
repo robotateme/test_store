@@ -6,8 +6,10 @@ use App\Models\Product;
 use App\View\Components\Pagination;
 use Illuminate\Console\Command;
 use JetBrains\PhpStorm\NoReturn;
+use Source\Domain\Actions\Basket\BasketAddProductAction;
 use Source\Domain\Actions\Product\ProductGetListAction;
 use Source\Domain\Actions\User\UserLoginAction;
+use Source\Domain\Dto\Basket\Request\BasketAddProductDto;
 use Source\Domain\Dto\Pagination\Request\PaginationDto;
 use Source\Infrastructure\Assemblers\User\UserLoginDtoAssembler;
 
@@ -30,8 +32,9 @@ class Testing extends Command
     /**
      * Execute the console command.
      */
-    #[NoReturn] public function handle(ProductGetListAction $action): void
+    #[NoReturn] public function handle(BasketAddProductAction $action): void
     {
-        dd(Product::factory(10)->make()->toArray());
+        $dto = new BasketAddProductDto(1, 2, 3, 'eqweweweew');
+        dd($action->handle($dto));
     }
 }

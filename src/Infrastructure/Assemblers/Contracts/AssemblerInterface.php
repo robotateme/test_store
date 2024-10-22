@@ -4,7 +4,6 @@ namespace Source\Infrastructure\Assemblers\Contracts;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
-use Source\Domain\Dto\Contracts\BaseDtoCollection;
 use Source\Domain\Dto\Contracts\DtoCollectionInterface;
 use Source\Domain\Dto\Contracts\DtoInterface;
 use Source\Domain\Dto\Pagination\Contracts\BasePaginationDto;
@@ -31,7 +30,7 @@ interface AssemblerInterface
 
     public static function toCollectionOfDto(
         array|Arrayable $models,
-        string|BaseDtoCollection $dtoCollection,
+        string|DtoCollectionInterface $dtoItem,
         BasePaginationDto|null $pagination = null
     ): DtoCollectionInterface;
 }

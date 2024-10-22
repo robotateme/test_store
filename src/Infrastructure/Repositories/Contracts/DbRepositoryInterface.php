@@ -1,9 +1,8 @@
 <?php
 
-namespace Source\Infrastructure\Repositories\Basket\Contracts;
+namespace Source\Infrastructure\Repositories\Contracts;
 
 use Illuminate\Database\Eloquent\Model;
-use Source\Infrastructure\Repositories\Contracts\RepositoryInterface;
 
 interface DbRepositoryInterface extends RepositoryInterface
 {

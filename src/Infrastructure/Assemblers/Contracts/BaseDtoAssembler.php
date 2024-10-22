@@ -7,6 +7,7 @@ use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Source\Domain\Dto\Contracts\BaseDtoCollection;
+use Source\Domain\Dto\Contracts\DtoCollectionInterface;
 use Source\Domain\Dto\Contracts\DtoInterface;
 use Source\Domain\Dto\Pagination\Contracts\BasePaginationDto;
 use Source\Infrastructure\Assemblers\Exceptions\AssemblerException;
@@ -36,6 +37,8 @@ abstract class BaseDtoAssembler implements AssemblerInterface
         return array_map(function (Model|array $data) {
             if (is_array($data)) {
                 return static::fromArray($data);
+            } elseif ($data instanceof Model) {
+                return static::fromModel($data);
             } elseif ($data instanceof Arrayable) {
                 return static::fromArray($data->toArray());
             }
@@ -45,23 +48,22 @@ abstract class BaseDtoAssembler implements AssemblerInterface
 
     /**
      * @param  array|Arrayable  $models
-     * @param  string|BaseDtoCollection  $dtoCollection
+     * @param  string|DtoCollectionInterface  $dtoItem
      * @param  BasePaginationDto|null  $pagination
      * @return BaseDtoCollection
      * @throws AssemblerException
      */
     public static function toCollectionOfDto(
         array|Arrayable $models,
-        string|BaseDtoCollection $dtoCollection,
+        string|DtoCollectionInterface $dtoItem,
         BasePaginationDto|null $pagination = null,
-    ): BaseDtoCollection {
+    ): DtoCollectionInterface {
 
-        if (is_string($dtoCollection) && !class_exists($dtoCollection)) {
-            throw new AssemblerException("Class $dtoCollection does not exist");
+        if (is_string($dtoItem) && !class_exists($dtoItem)) {
+            throw new AssemblerException("Class $dtoItem does not exist");
         }
 
         $models = ($models instanceof Arrayable) ? $models->toArray() : $models;
-
         try {
             $items = array_map(function ($data) {
                 if (is_array($data)) {
@@ -72,7 +74,7 @@ abstract class BaseDtoAssembler implements AssemblerInterface
                 throw new AssemblerException("Wrong array item type");
             }, $models);
 
-            return new $dtoCollection($items, $pagination);
+            return new $dtoItem($items, $pagination ?? null);
         } catch (Exception $e) {
             throw new AssemblerException($e->getMessage());
         }
