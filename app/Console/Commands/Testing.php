@@ -34,7 +34,8 @@ class Testing extends Command
      */
     #[NoReturn] public function handle(BasketAddProductAction $action): void
     {
-        $dto = new BasketAddProductDto(1, 2, 3, 'eqweweweew');
+        $dto = new BasketAddProductDto(1, 2, null, 'testID555');
         dd($action->handle($dto));
+//        dd((new \DateTime('2017-02-06T22:25:12Z'))->format('Y-m-d H:i:s'));
     }
 }

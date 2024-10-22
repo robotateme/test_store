@@ -9,6 +9,8 @@ readonly class BasketPositionDto extends BaseDto
 {
     public function __construct(
         public int $id,
+        public ?int $userId,
+        public string $sessionId,
         public int $productId,
         public int $quantity,
         public float $price,
