@@ -4,7 +4,7 @@ namespace Source\Domain\ValueObjects;
 
 use Source\Domain\Contracts\ValueObjectInterface;
 
-class BasketPositionPriceValue implements ValueObjectInterface
+class BasketPositionSubtotalValue implements ValueObjectInterface
 {
     private float $value;
 
@@ -13,13 +13,13 @@ class BasketPositionPriceValue implements ValueObjectInterface
         $this->value = $price * $quantity;
     }
 
-    public function getValue(): mixed
+    public function getValue(): float
     {
-        return $this->value;
+        return (new MoneyValue($this->value))->getValue();
     }
 
     public function __toString(): string
     {
-        return $this->value;
+        return (new MoneyValue($this->value))->getValue();
     }
 }

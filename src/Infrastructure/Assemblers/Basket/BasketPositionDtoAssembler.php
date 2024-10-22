@@ -6,7 +6,7 @@ use App\Models\Basket;
 use Illuminate\Database\Eloquent\Model;
 use Source\Domain\Dto\Basket\Response\BasketPositionDto;
 use Source\Domain\Dto\Contracts\DtoInterface;
-use Source\Domain\ValueObjects\BasketPositionPriceValue;
+use Source\Domain\ValueObjects\BasketPositionSubtotalValue;
 use Source\Domain\ValueObjects\DatetimeValue;
 use Source\Domain\ValueObjects\Exception\ValueException;
 use Source\Infrastructure\Assemblers\Contracts\BaseDtoAssembler;
@@ -31,7 +31,7 @@ class BasketPositionDtoAssembler extends BaseDtoAssembler
                 $data['session_id'] ?? null,
                 $data['product_id'] ?? null,
                 $data['quantity'] ?? null,
-                (new BasketPositionPriceValue($product['price'] ?? null, $data['quantity']))->getValue() ?? null,
+                (new BasketPositionSubtotalValue($product['price'] ?? null, $data['quantity']))->getValue() ?? null,
                 (new DatetimeValue($data['created_at']))->getValue(),
                 ProductDtoAssembler::fromArray($product)
             );
@@ -56,7 +56,7 @@ class BasketPositionDtoAssembler extends BaseDtoAssembler
                 $model->session_id,
                 $model->product_id,
                 $model->quantity,
-                (new BasketPositionPriceValue($product->price, $model->quantity))->getValue(),
+                (new BasketPositionSubtotalValue($product->price, $model->quantity))->getValue(),
                 (new DatetimeValue($model->created_at))->getValue(),
                 ProductDtoAssembler::fromModel($product)
             );

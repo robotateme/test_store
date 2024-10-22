@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('auth/login', [AuthController::class, 'login'])->name('auth.login');
 Route::get('/basket', [BasketController::class, 'index'])->name('basket.index');
-Route::post('/basket/add', [BasketController::class, 'store'])->name('basket.index');
+Route::post('/basket/add', [BasketController::class, 'store'])->name('basket.store');
 Route::get('/login', function () {
     return view('login');
 })->name('login');

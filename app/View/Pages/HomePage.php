@@ -4,6 +4,7 @@ namespace App\View\Pages;
 
 use App\View\Pages\Contracts\BasePage;
 use App\View\Pages\Contracts\HomePageInterface;
+use Auth;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -37,7 +38,9 @@ readonly class HomePage extends BasePage implements HomePageInterface
 
         return view('home', [
             'products' => $productsListDto->items,
-            'pagination' => $productsListDto->paginationDto
+            'pagination' => $productsListDto->paginationDto,
+            'userId' => Auth::id(),
+            'sessionId' => $request->cookie('laravel_session')
         ]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Source\Infrastructure\Assemblers\Contracts;
 
+use Closure;
 use Exception;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
@@ -48,21 +49,19 @@ abstract class BaseDtoAssembler implements AssemblerInterface
 
     /**
      * @param  array|Arrayable  $models
-     * @param  string|DtoCollectionInterface  $dtoItem
+     * @param  string  $dtoClass
      * @param  BasePaginationDto|null  $pagination
      * @return BaseDtoCollection
      * @throws AssemblerException
      */
     public static function toCollectionOfDto(
         array|Arrayable $models,
-        string|DtoCollectionInterface $dtoItem,
+        string $dtoClass,
         BasePaginationDto|null $pagination = null,
     ): DtoCollectionInterface {
-
-        if (is_string($dtoItem) && !class_exists($dtoItem)) {
-            throw new AssemblerException("Class $dtoItem does not exist");
+        if (!class_exists($dtoClass)) {
+            throw new AssemblerException("Class $dtoClass does not exist");
         }
-
         $models = ($models instanceof Arrayable) ? $models->toArray() : $models;
         try {
             $items = array_map(function ($data) {
@@ -74,10 +73,14 @@ abstract class BaseDtoAssembler implements AssemblerInterface
                 throw new AssemblerException("Wrong array item type");
             }, $models);
 
-            return new $dtoItem($items, $pagination ?? null);
+            return static::instantiate($dtoClass, $items, $pagination);
         } catch (Exception $e) {
             throw new AssemblerException($e->getMessage());
         }
     }
 
+    protected static function instantiate(string $dtoClass, array $items, ?BasePaginationDto $pagination)
+    {
+        return new $dtoClass($items, $pagination);
+    }
 }

@@ -9,14 +9,15 @@ use Source\Domain\Actions\Basket\Contracts\BasketGetPositionsActionInterface;
 
 readonly class BasketPage extends BasePage implements BasketPageInterface
 {
-    public function __construct(BasketGetPositionsActionInterface $basketGetListAction)
+    public function __construct(private BasketGetPositionsActionInterface $basketGetPositionsAction)
     {
     }
 
-    public function render(): View
+    public function render(string $sessionId, int $userId = null): View
     {
+        $positions = $this->basketGetPositionsAction->handle($sessionId, $userId);
         return view('basket', [
-//            'positions' => $basketGetListAction,
+            'positions' => $positions,
         ]);
     }
 }

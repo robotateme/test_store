@@ -22,4 +22,10 @@ interface BasketsRepositoryInterface extends RepositoryInterface
      * @return BaseDtoCollection
      */
     public function getPositions(string $sessionId, int $userId = null): BaseDtoCollection;
+
+    /**
+     * @param  BasketAddProductDto  $addProductDto
+     * @return bool
+     */
+    public function updatePositionIncrementQuantity(BasketAddProductDto $addProductDto): bool;
 }

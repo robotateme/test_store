@@ -6,7 +6,7 @@
      * @var $pagination PaginationResultDto
     */
 @endphp
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 
 <head>
@@ -266,8 +266,12 @@
 <x-header></x-header>
 <main class="pt-90">
     <section class="shop-main container d-flex pt-4 pt-xl-5">
-        <div style="border: .3rem solid black;" class="shop-sidebar side-sticky bg-body" id="shopFilter">
-            Filters
+        <div class="shop-sidebar side-sticky bg-body" id="shopFilter">
+            @session('basket.success')
+            <div class="alert alert-success" role="alert">
+                {{$value}}
+            </div>
+            @endsession
         </div>
 
         <div class="shop-list flex-grow-1">
@@ -286,7 +290,7 @@
             }
             }'>
             <div style="border: .3rem solid black;" class="swiper-wrapper">
-                Banner slider
+                Banner
             </div>
 
             <div class="container p-3 p-xl-5">
@@ -343,6 +347,8 @@
                                        name="quantity"
                                        aria-describedby="cart-add-addon">
                                 <input type="hidden" value="{{$product->id}}" name="id">
+                                <input type="hidden" value="{{$product->id}}" name="product_id">
+                                <input type="hidden" value="{{$userId}}" name="user_id">
                             </div>
                         </form>
                         <div class="pc__info position-relative">
@@ -372,7 +378,7 @@
 <div id="scrollTop" class="visually-hidden end-0"></div>
 <div class="page-overlay"></div>
 
-<script src="{{asset('assets/js/plugins/jquery.min.js)'}}"></script>
+<script src="{{asset('assets/js/plugins/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins/bootstrap-slider.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins/swiper.min.js')}}"></script>

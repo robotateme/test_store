@@ -7,7 +7,7 @@ use Source\Domain\Contracts\ValueObjectInterface;
 class MoneyValue implements ValueObjectInterface
 {
 
-    public function __construct(private float $value)
+    public function __construct(private ?float $value)
     {
         $this->value = round($this->value, 2);
     }

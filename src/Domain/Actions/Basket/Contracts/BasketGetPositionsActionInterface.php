@@ -6,5 +6,5 @@ use Source\Domain\Actions\Contracts\ActionInterface;
 
 interface BasketGetPositionsActionInterface extends ActionInterface
 {
-    public function handle(string $sessionId, string $userId);
+    public function handle(string $sessionId, ?int $userId = null);
 }

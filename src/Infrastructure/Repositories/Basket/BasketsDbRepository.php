@@ -47,4 +47,21 @@ class BasketsDbRepository extends BaseDbRepository implements BasketsRepositoryI
 
         return BasketPositionsDtoAssembler::toCollectionOfDto($positions, BasketPositionsDto::class);
     }
+
+    /**
+     * @param  BasketAddProductDto  $addProductDto
+     * @return bool
+     */
+    public function updatePositionIncrementQuantity(BasketAddProductDto $addProductDto): bool
+    {
+        $result = $this->query(function (Builder $builder) use ($addProductDto) {
+            $builder->where(['product_id' => $addProductDto->productId]);
+            $builder->when(!is_null($addProductDto->userId),
+                fn(Builder $builder) => $builder->where(['user_id' => $addProductDto->userId]));
+            $builder->when(is_null($addProductDto->userId),
+                fn(Builder $builder) => $builder->where(['session_id' => $addProductDto->sessionId]));
+            return $builder;
+        })->increment('quantity', $addProductDto->quantity);
+        return $result > 0;
+    }
 }

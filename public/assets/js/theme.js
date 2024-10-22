@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line no-undef
 var $ = jQuery.noConflict();
-
 let UomoSections = {};
 let UomoElements = {};
 
@@ -1454,6 +1453,13 @@ function pureFadeOut(e) {
     });
 })();
 
+document.querySelectorAll('a.remove-cart').forEach(function (el) {
+  el.addEventListener('click', (event) => {
+    console.log(event.target.href);
+    event.preventDefault();
+    // $.delete('/basket/remove', {id : $(event.target).href})
+  });
+})
 window.addEventListener('load', () => {
   try {
     let url = window.location.href.split('#').pop();
@@ -1462,3 +1468,4 @@ window.addEventListener('load', () => {
 
   }
 });
+

@@ -9,11 +9,9 @@ use Source\Infrastructure\Repositories\Basket\Contracts\BasketsRepositoryInterfa
 readonly class BasketGetPositionsAction implements BasketGetPositionsActionInterface
 {
     public function __construct(private BasketsRepositoryInterface $basketsRepository)
-    {
+    {}
 
-    }
-
-    public function handle(string $sessionId, string $userId): BaseDtoCollection
+    public function handle(string $sessionId, ?int $userId = null): BaseDtoCollection
     {
         return $this->basketsRepository->getPositions($sessionId, $userId);
     }
