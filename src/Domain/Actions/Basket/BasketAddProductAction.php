@@ -16,9 +16,9 @@ readonly class BasketAddProductAction implements BasketAddProductActionInterface
 {
 
     /**
-     * @param  BasketsRepositoryInterface|BasketsDbRepository  $basketsRepository
+     * @param  BasketsDbRepository  $basketsRepository
      */
-    public function __construct(private BasketsRepositoryInterface|BasketsDbRepository $basketsRepository)
+    public function __construct(private BasketsRepositoryInterface $basketsRepository)
     {
     }
 
@@ -26,20 +26,18 @@ readonly class BasketAddProductAction implements BasketAddProductActionInterface
      * @param  BaseDto|BasketAddProductDto  $dto
      * @return BaseDtoCollection
      * @throws ActionException
-     * @throws RepositoryException
      */
     public function handle(BaseDto|BasketAddProductDto $dto): BaseDtoCollection
     {
-        if (!$this->basketsRepository->updatePositionIncrementQuantity($dto)) {
-            $this->basketsRepository->create($dto);
-        }
-
         try {
+            if (!$this->basketsRepository->updatePositionIncrementQuantity($dto)) {
+                $this->basketsRepository->create($dto);
+            }
             return $this->basketsRepository->getPositions(
                 $dto->sessionId,
                 $dto->userId
             );
-        } catch (AssemblerException $e) {
+        } catch (AssemblerException|RepositoryException $e) {
             throw new ActionException($e->getMessage());
         }
     }

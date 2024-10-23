@@ -13,6 +13,7 @@ use Illuminate\Support\Carbon;
  * 
  *
  * @property int $id
+ * @property string $order_number
  * @property string $products
  * @property float $total_price
  * @property int $user_id
@@ -34,4 +35,14 @@ class Order extends Model
 {
     /** @use HasFactory<OrderFactory> */
     use HasFactory;
+
+    /**
+     * @var string[]
+     */
+    protected $fillable = [
+        'order_number',
+        'products',
+        'total_price',
+        'user_id',
+    ];
 }

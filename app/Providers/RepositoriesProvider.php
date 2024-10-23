@@ -3,12 +3,15 @@
 namespace App\Providers;
 
 use App\Models\Basket;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Source\Infrastructure\Repositories\Basket\BasketsDbRepository;
 use Source\Infrastructure\Repositories\Basket\Contracts\BasketsRepositoryInterface;
+use Source\Infrastructure\Repositories\Order\Contracts\OrdersRepositoryInterface;
+use Source\Infrastructure\Repositories\Order\OrdersDbRepository;
 use Source\Infrastructure\Repositories\Product\Contracts\ProductsRepositoryInterface;
 use Source\Infrastructure\Repositories\Product\ProductsDbRepository;
 use Source\Infrastructure\Repositories\User\Contracts\UserRepositoryInterface;
@@ -33,6 +36,10 @@ class RepositoriesProvider extends ServiceProvider
         $this->app->when(BasketsDbRepository::class)
             ->needs(Model::class)
             ->give(Basket::class);
+        $this->app->bind(OrdersRepositoryInterface::class, OrdersDbRepository::class);
+        $this->app->when(OrdersDbRepository::class)
+            ->needs(Model::class)
+            ->give(Order::class);
     }
 
     /**

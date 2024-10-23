@@ -20,8 +20,8 @@ readonly class OrderCreateAction implements OrderCreateActionInterface
      * @param  BasketsRepositoryInterface|BasketsDbRepository  $baskets
      */
     public function __construct(
-        private OrdersRepositoryInterface|OrdersDbRepository $orders,
-        private BasketsRepositoryInterface|BasketsDbRepository $baskets,
+        private OrdersRepositoryInterface $orders,
+        private BasketsRepositoryInterface $baskets,
     )
     {
     }

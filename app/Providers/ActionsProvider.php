@@ -7,6 +7,8 @@ use Source\Domain\Actions\Basket\BasketAddProductAction;
 use Source\Domain\Actions\Basket\BasketGetPositionsAction;
 use Source\Domain\Actions\Basket\Contracts\BasketAddProductActionInterface;
 use Source\Domain\Actions\Basket\Contracts\BasketGetPositionsActionInterface;
+use Source\Domain\Actions\Order\Contracts\OrderCreateActionInterface;
+use Source\Domain\Actions\Order\Input\OrderCreateAction;
 use Source\Domain\Actions\Product\Contracts\ProductGetOneActionInterface;
 use Source\Domain\Actions\Product\Contracts\ProductsGetListActionInterface;
 use Source\Domain\Actions\Product\Output\ProductGetListAction;
@@ -26,6 +28,7 @@ class ActionsProvider extends ServiceProvider
         $this->app->bind(UserLoginActionInterface::class, UserLoginAction::class);
         $this->app->bind(BasketAddProductActionInterface::class, BasketAddProductAction::class);
         $this->app->bind(BasketGetPositionsActionInterface::class, BasketGetPositionsAction::class);
+        $this->app->bind(OrderCreateActionInterface::class, OrderCreateAction::class);
     }
 
     /**

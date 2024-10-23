@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use JetBrains\PhpStorm\NoReturn;
-use Source\Domain\ValueObjects\OrderNumberValue;
+use Source\Domain\Actions\Order\Input\OrderCreateAction;
 
 class Testing extends Command
 {
@@ -25,8 +25,8 @@ class Testing extends Command
     /**
      * Execute the console command.
      */
-    #[NoReturn] public function handle(): void
+    #[NoReturn] public function handle(OrderCreateAction $orderCreateAction): void
     {
-        report(new \Exception('Test'));
+        dd($orderCreateAction->handle(11, 'id51111'));
     }
 }

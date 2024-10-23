@@ -11,9 +11,9 @@ use Source\Infrastructure\Repositories\Basket\Contracts\BasketsRepositoryInterfa
 readonly class BasketGetPositionsAction implements BasketGetPositionsActionInterface
 {
     /**
-     * @param  BasketsRepositoryInterface|BasketsDbRepository  $basketsRepository
+     * @param  BasketsDbRepository  $basketsRepository
      */
-    public function __construct(private BasketsRepositoryInterface|BasketsDbRepository $basketsRepository)
+    public function __construct(private BasketsRepositoryInterface $basketsRepository)
     {}
 
     /**

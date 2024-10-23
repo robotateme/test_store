@@ -16,9 +16,9 @@ use Source\Infrastructure\Repositories\User\UsersDbRepository;
 readonly class UserLoginAction implements UserLoginActionInterface
 {
     /**
-     * @param  UserRepositoryInterface|UsersDbRepository  $users
+     * @param  UserRepositoryInterface  $users
      */
-    public function __construct(private UserRepositoryInterface|UsersDbRepository $users)
+    public function __construct(private UserRepositoryInterface $users)
     {
 
     }

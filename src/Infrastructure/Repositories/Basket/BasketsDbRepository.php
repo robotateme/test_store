@@ -42,7 +42,7 @@ class BasketsDbRepository extends BaseDbRepository implements BasketsRepositoryI
     /**
      * @throws AssemblerException
      */
-    public function getPositions(string $sessionId, int $userId = null): BaseDtoCollection
+    public function getPositions(string $sessionId, int $userId = null): BaseDtoCollection|BasketPositionsDto
     {
         $positions = $this->getBuilder()->where(function (Builder $builder) use ($userId, $sessionId) {
             $builder->when(!is_null($userId), function (Builder $builder) use ($userId) {

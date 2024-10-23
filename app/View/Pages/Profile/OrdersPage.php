@@ -13,6 +13,10 @@ readonly class OrdersPage extends BasePage implements ProfileOrdersPageInterface
     {
     }
 
+    /**
+     * @param  Request  $request
+     * @return mixed
+     */
     public function render(Request $request)
     {
         throw new RuntimeException('Unimplemented');
