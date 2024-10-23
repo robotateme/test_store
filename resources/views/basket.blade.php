@@ -11,6 +11,7 @@
 
 <head>
     <title>Surfside Media</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="author" content="surfside media"/>
@@ -306,7 +307,7 @@
                                     <span class="shopping-cart__subtotal">{{$position->price}}</span>
                                 </td>
                                 <td>
-                                    <a href="#" data="{{$position->id}}" class="remove-cart">
+                                    <a href="#" data-id="{{$position->id}}" class="remove-cart">
                                         &#x2715;
                                     </a>
                                 </td>
@@ -330,7 +331,7 @@
                     </div>
                     <div class="mobile_fixed-btn_wrapper">
                         <div class="button-wrapper container">
-                            <a href="checkout.blade.php" class="btn btn-primary btn-checkout">PROCEED TO CHECKOUT</a>
+                            <a href="/profile/orders" class="btn btn-primary btn-checkout">PROCEED TO CHECKOUT</a>
                         </div>
                     </div>
                 </div>

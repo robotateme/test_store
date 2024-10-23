@@ -5,6 +5,7 @@ namespace Source\Infrastructure\Repositories\Basket;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Builder;
 use Source\Domain\Dto\Basket\Request\BasketAddProductDto;
+use Source\Domain\Dto\Basket\Request\BasketRemovePositionDto;
 use Source\Domain\Dto\Basket\Response\BasketPositionDto;
 use Source\Domain\Dto\Basket\Response\BasketPositionsDto;
 use Source\Domain\Dto\Contracts\BaseDtoCollection;
@@ -14,6 +15,7 @@ use Source\Infrastructure\Assemblers\Basket\BasketPositionsDtoAssembler;
 use Source\Infrastructure\Assemblers\Exceptions\AssemblerException;
 use Source\Infrastructure\Repositories\Basket\Contracts\BasketsRepositoryInterface;
 use Source\Infrastructure\Repositories\Contracts\BaseDbRepository;
+use Source\Infrastructure\Repositories\Exceptions\ResourceNotFoundException;
 
 class BasketsDbRepository extends BaseDbRepository implements BasketsRepositoryInterface
 {
@@ -63,5 +65,29 @@ class BasketsDbRepository extends BaseDbRepository implements BasketsRepositoryI
             return $builder;
         })->increment('quantity', $addProductDto->quantity);
         return $result > 0;
+    }
+
+    /**
+     * @param  BasketRemovePositionDto  $removePositionDto
+     * @return bool|null
+     * @throws ResourceNotFoundException
+     */
+    public function removePosition(BasketRemovePositionDto $removePositionDto): ?bool
+    {
+        /** @var Product $model */
+        $model = $this->query(function (Builder $builder) use ($removePositionDto) {
+            $builder->where(['id' => $removePositionDto->id]);
+            $builder->when(!is_null($removePositionDto->userId),
+                fn(Builder $builder) => $builder->where(['user_id' => $removePositionDto->userId]));
+            $builder->when(is_null($removePositionDto->userId),
+                fn(Builder $builder) => $builder->where(['session_id' => $removePositionDto->sessionId]));
+            return $builder;
+        })->first();
+
+        if(is_null($model)) {
+            throw new ResourceNotFoundException();
+        }
+
+        return $model->delete();
     }
 }

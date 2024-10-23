@@ -3,10 +3,12 @@
 namespace Source\Infrastructure\Repositories\Basket\Contracts;
 
 use Source\Domain\Dto\Basket\Request\BasketAddProductDto;
+use Source\Domain\Dto\Basket\Request\BasketRemovePositionDto;
 use Source\Domain\Dto\Contracts\BaseDto;
 use Source\Domain\Dto\Contracts\BaseDtoCollection;
 use Source\Domain\Dto\Contracts\DtoInterface;
 use Source\Infrastructure\Repositories\Contracts\RepositoryInterface;
+use Source\Infrastructure\Repositories\Exceptions\ResourceNotFoundException;
 
 interface BasketsRepositoryInterface extends RepositoryInterface
 {
@@ -28,4 +30,11 @@ interface BasketsRepositoryInterface extends RepositoryInterface
      * @return bool
      */
     public function updatePositionIncrementQuantity(BasketAddProductDto $addProductDto): bool;
+
+    /**
+     * @param  BasketRemovePositionDto  $removePositionDto
+     * @return bool|null
+     * @throws ResourceNotFoundException
+     */
+    public function removePosition(BasketRemovePositionDto $removePositionDto) : ?bool;
 }

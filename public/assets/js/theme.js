@@ -1455,9 +1455,22 @@ function pureFadeOut(e) {
 
 document.querySelectorAll('a.remove-cart').forEach(function (el) {
   el.addEventListener('click', (event) => {
-    console.log(event.target.href);
+    let id = event.target.dataset?.id
     event.preventDefault();
-    // $.delete('/basket/remove', {id : $(event.target).href})
+    if (id) {
+      $.ajax({
+        url: '/basket/remove',
+        method: 'delete',
+        dataType: 'json',
+        data: {id : id},
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function(){
+           location.reload();
+        }
+      });
+    }
   });
 })
 window.addEventListener('load', () => {
