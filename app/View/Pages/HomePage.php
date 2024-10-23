@@ -10,8 +10,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Source\Domain\Actions\Product\Contracts\ProductsGetListActionInterface;
-use Source\Domain\Actions\Product\ProductGetListAction;
-use Source\Domain\Dto\Pagination\Request\PaginationDto;
+use Source\Domain\Actions\Product\Output\ProductGetListAction;
+use Source\Domain\Dto\Pagination\Input\PaginationDto;
 
 readonly class HomePage extends BasePage implements HomePageInterface
 {

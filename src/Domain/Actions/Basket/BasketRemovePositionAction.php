@@ -4,13 +4,17 @@ namespace Source\Domain\Actions\Basket;
 
 use Source\Domain\Actions\Basket\Contracts\BasketRemovePositionActionInterface;
 use Source\Domain\Actions\Exceptions\ActionException;
-use Source\Domain\Dto\Basket\Request\BasketRemovePositionDto;
+use Source\Domain\Dto\Basket\Input\BasketRemovePositionDto;
+use Source\Infrastructure\Repositories\Basket\BasketsDbRepository;
 use Source\Infrastructure\Repositories\Basket\Contracts\BasketsRepositoryInterface;
 use Source\Infrastructure\Repositories\Exceptions\ResourceNotFoundException;
 
 readonly class BasketRemovePositionAction implements BasketRemovePositionActionInterface
 {
-    public function __construct(private BasketsRepositoryInterface $basketsRepository)
+    /**
+     * @param  BasketsRepositoryInterface|BasketsDbRepository  $basketsRepository
+     */
+    public function __construct(private BasketsRepositoryInterface|BasketsDbRepository $basketsRepository)
     {
     }
 

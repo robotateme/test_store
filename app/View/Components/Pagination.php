@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use Source\Domain\Dto\Pagination\Response\PaginationResultDto;
+use Source\Domain\Dto\Pagination\Output\PaginationResultDto;
 
 class Pagination extends Component
 {

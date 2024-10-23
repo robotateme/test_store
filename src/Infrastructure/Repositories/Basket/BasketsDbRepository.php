@@ -3,11 +3,12 @@
 namespace Source\Infrastructure\Repositories\Basket;
 
 use App\Models\Product;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
-use Source\Domain\Dto\Basket\Request\BasketAddProductDto;
-use Source\Domain\Dto\Basket\Request\BasketRemovePositionDto;
-use Source\Domain\Dto\Basket\Response\BasketPositionDto;
-use Source\Domain\Dto\Basket\Response\BasketPositionsDto;
+use Source\Domain\Dto\Basket\Input\BasketAddProductDto;
+use Source\Domain\Dto\Basket\Input\BasketRemovePositionDto;
+use Source\Domain\Dto\Basket\Output\BasketPositionDto;
+use Source\Domain\Dto\Basket\Output\BasketPositionsDto;
 use Source\Domain\Dto\Contracts\BaseDtoCollection;
 use Source\Domain\Dto\Contracts\DtoInterface;
 use Source\Infrastructure\Assemblers\Basket\BasketPositionDtoAssembler;
@@ -15,6 +16,7 @@ use Source\Infrastructure\Assemblers\Basket\BasketPositionsDtoAssembler;
 use Source\Infrastructure\Assemblers\Exceptions\AssemblerException;
 use Source\Infrastructure\Repositories\Basket\Contracts\BasketsRepositoryInterface;
 use Source\Infrastructure\Repositories\Contracts\BaseDbRepository;
+use Source\Infrastructure\Repositories\Exceptions\RepositoryException;
 use Source\Infrastructure\Repositories\Exceptions\ResourceNotFoundException;
 
 class BasketsDbRepository extends BaseDbRepository implements BasketsRepositoryInterface
@@ -22,14 +24,19 @@ class BasketsDbRepository extends BaseDbRepository implements BasketsRepositoryI
     /**
      * @param  BasketAddProductDto  $addProductDto
      * @return BasketPositionDto
-     * @throws AssemblerException
+     * @throws RepositoryException
      */
     public function create(BasketAddProductDto $addProductDto): DtoInterface
     {
-        /** @var Product $model */
-        $model = $this->getBuilder()
-            ->create($addProductDto->toArray());
-        return BasketPositionDtoAssembler::fromModel($model);
+        try {
+            /** @var Product $model */
+            $model = $this->getBuilder()
+                ->create($addProductDto->toArray());
+            return BasketPositionDtoAssembler::fromModel($model);
+        } catch (Exception $exception) {
+            report($exception->getMessage());
+            throw new RepositoryException("Can't create basket position");
+        }
     }
 
     /**
@@ -37,7 +44,7 @@ class BasketsDbRepository extends BaseDbRepository implements BasketsRepositoryI
      */
     public function getPositions(string $sessionId, int $userId = null): BaseDtoCollection
     {
-        $positions = $this->query(where: function (Builder $builder) use ($userId, $sessionId) {
+        $positions = $this->getBuilder()->where(function (Builder $builder) use ($userId, $sessionId) {
             $builder->when(!is_null($userId), function (Builder $builder) use ($userId) {
                 return $builder->where('user_id', $userId);
             });
@@ -56,7 +63,7 @@ class BasketsDbRepository extends BaseDbRepository implements BasketsRepositoryI
      */
     public function updatePositionIncrementQuantity(BasketAddProductDto $addProductDto): bool
     {
-        $result = $this->query(function (Builder $builder) use ($addProductDto) {
+        $result = $this->getBuilder()->where(function (Builder $builder) use ($addProductDto) {
             $builder->where(['product_id' => $addProductDto->productId]);
             $builder->when(!is_null($addProductDto->userId),
                 fn(Builder $builder) => $builder->where(['user_id' => $addProductDto->userId]));
@@ -75,7 +82,7 @@ class BasketsDbRepository extends BaseDbRepository implements BasketsRepositoryI
     public function removePosition(BasketRemovePositionDto $removePositionDto): ?bool
     {
         /** @var Product $model */
-        $model = $this->query(function (Builder $builder) use ($removePositionDto) {
+        $model = $this->getBuilder()->where(function (Builder $builder) use ($removePositionDto) {
             $builder->where(['id' => $removePositionDto->id]);
             $builder->when(!is_null($removePositionDto->userId),
                 fn(Builder $builder) => $builder->where(['user_id' => $removePositionDto->userId]));

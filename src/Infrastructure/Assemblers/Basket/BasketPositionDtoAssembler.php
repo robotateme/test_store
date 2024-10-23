@@ -4,7 +4,7 @@ namespace Source\Infrastructure\Assemblers\Basket;
 
 use App\Models\Basket;
 use Illuminate\Database\Eloquent\Model;
-use Source\Domain\Dto\Basket\Response\BasketPositionDto;
+use Source\Domain\Dto\Basket\Output\BasketPositionDto;
 use Source\Domain\Dto\Contracts\DtoInterface;
 use Source\Domain\ValueObjects\BasketPositionSubtotalValue;
 use Source\Domain\ValueObjects\DatetimeValue;

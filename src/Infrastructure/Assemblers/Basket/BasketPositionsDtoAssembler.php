@@ -3,7 +3,7 @@
 namespace Source\Infrastructure\Assemblers\Basket;
 
 
-use Source\Domain\Dto\Basket\Response\BasketPositionsDto;
+use Source\Domain\Dto\Basket\Output\BasketPositionsDto;
 use Source\Domain\Dto\Contracts\BaseDtoCollection;
 use Source\Domain\Dto\Pagination\Contracts\BasePaginationDto;
 use Source\Domain\ValueObjects\BasketPositionsTotalValue;

@@ -2,7 +2,7 @@
 
 namespace Source\Infrastructure\Repositories\User;
 
-use Source\Domain\Dto\User\Response\UserDto;
+use Source\Domain\Dto\User\Output\UserDto;
 use Source\Infrastructure\Assemblers\User\UserDtoAssembler;
 use Source\Infrastructure\Repositories\Contracts\BaseDbRepository;
 use Source\Infrastructure\Repositories\Exceptions\ResourceNotFoundException;
@@ -18,7 +18,7 @@ class UsersDbRepository extends BaseDbRepository implements UserRepositoryInterf
      */
     public function findByEmail(string $email): UserDto
     {
-        $user = $this->query(where: ['email' => $email])->first();
+        $user = $this->getBuilder()->where(['email' => $email])->first();
         if (is_null($user)) {
             throw new ResourceNotFoundException();
         }

@@ -8,7 +8,7 @@ use JetBrains\PhpStorm\NoReturn;
 use Mockery;
 use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Source\Domain\Actions\Product\ProductGetOneAction;
+use Source\Domain\Actions\Product\Output\ProductGetOneAction;
 use Source\Infrastructure\Assemblers\Product\ProductDtoAssembler;
 use Source\Infrastructure\Repositories\Product\Contracts\ProductsRepositoryInterface;
 use Tests\TestCase;

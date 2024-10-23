@@ -6,7 +6,7 @@ use App\Models\Product;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Source\Domain\Dto\Contracts\BaseDto;
-use Source\Domain\Dto\Product\Response\ProductDto;
+use Source\Domain\Dto\Product\Output\ProductDto;
 use Source\Domain\ValueObjects\DatetimeValue;
 use Source\Domain\ValueObjects\Exception\ValueException;
 use Source\Infrastructure\Assemblers\Contracts\BaseDtoAssembler;

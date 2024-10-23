@@ -2,8 +2,8 @@
 
 namespace Source\Infrastructure\Repositories\Basket\Contracts;
 
-use Source\Domain\Dto\Basket\Request\BasketAddProductDto;
-use Source\Domain\Dto\Basket\Request\BasketRemovePositionDto;
+use Source\Domain\Dto\Basket\Input\BasketAddProductDto;
+use Source\Domain\Dto\Basket\Input\BasketRemovePositionDto;
 use Source\Domain\Dto\Contracts\BaseDto;
 use Source\Domain\Dto\Contracts\BaseDtoCollection;
 use Source\Domain\Dto\Contracts\DtoInterface;

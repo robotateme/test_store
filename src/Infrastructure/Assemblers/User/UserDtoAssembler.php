@@ -4,14 +4,16 @@ namespace Source\Infrastructure\Assemblers\User;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use Source\Domain\Dto\User\Response\UserDto;
+use Source\Domain\Dto\User\Output\UserDto;
 use Source\Infrastructure\Assemblers\Contracts\BaseDtoAssembler;
 
 class UserDtoAssembler extends BaseDtoAssembler
 {
 
+
     /**
-     * @inheritDoc
+     * @param  array  $data
+     * @return UserDto
      */
     public static function fromArray(array $data): UserDto
     {
@@ -28,7 +30,8 @@ class UserDtoAssembler extends BaseDtoAssembler
     }
 
     /**
-     * @inheritDoc
+     * @param  Model|User  $model
+     * @return UserDto
      */
     public static function fromModel(Model|User $model): UserDto
     {

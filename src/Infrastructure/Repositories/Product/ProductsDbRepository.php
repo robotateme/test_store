@@ -6,8 +6,9 @@ use Source\Domain\Dto\Contracts\BaseDto;
 use Source\Domain\Dto\Contracts\BaseDtoCollection;
 use Source\Domain\Dto\Contracts\DtoCollectionInterface;
 use Source\Domain\Dto\Pagination\Contracts\BasePaginationDto;
-use Source\Domain\Dto\Pagination\Response\PaginationResultDto;
-use Source\Domain\Dto\Product\Response\ProductListDto;
+use Source\Domain\Dto\Pagination\Input\PaginationDto;
+use Source\Domain\Dto\Pagination\Output\PaginationResultDto;
+use Source\Domain\Dto\Product\Output\ProductListDto;
 use Source\Infrastructure\Assemblers\Exceptions\AssemblerException;
 use Source\Infrastructure\Assemblers\Product\ProductDtoAssembler;
 use Source\Infrastructure\Assemblers\Product\ProductsListDtoAssembler;
@@ -18,13 +19,13 @@ use Source\Infrastructure\Repositories\Product\Contracts\ProductsRepositoryInter
 class ProductsDbRepository extends BaseDbRepository implements ProductsRepositoryInterface
 {
     /**
-     * @param  BasePaginationDto  $pagination
-     * @return DtoCollectionInterface
+     * @param  BasePaginationDto|PaginationDto  $pagination
+     * @return BaseDtoCollection
      * @throws AssemblerException
      */
-    public function getList(BasePaginationDto $pagination): BaseDtoCollection
+    public function getList(BasePaginationDto|PaginationDto $pagination): BaseDtoCollection
     {
-        $models = $this->query(pagination: $pagination)->get();
+        $models = $this->getBuilder()->forPage($pagination->page, $pagination->perPage)->get();
         return ProductsListDtoAssembler::toCollectionOfDto(
             $models,
             ProductListDto::class,
@@ -34,11 +35,11 @@ class ProductsDbRepository extends BaseDbRepository implements ProductsRepositor
     /**
      * @param  int  $id
      * @return BaseDto
-     * @throws ResourceNotFoundException
+     * @throws ResourceNotFoundException|AssemblerException
      */
     public function getOne(int $id): BaseDto
     {
-        $model = $this->query()->find($id);
+        $model = $this->getBuilder()->find($id);
         if (is_null($model)) {
             throw new ResourceNotFoundException();
         }
@@ -50,6 +51,6 @@ class ProductsDbRepository extends BaseDbRepository implements ProductsRepositor
      */
     public function totalCount(): int
     {
-        return $this->query()->count();
+        return $this->getBuilder()->count();
     }
 }

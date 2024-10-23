@@ -4,9 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use JetBrains\PhpStorm\NoReturn;
-use Source\Domain\Actions\Basket\BasketAddProductAction;
-use Source\Domain\Dto\Basket\Request\BasketAddProductDto;
-use Source\Domain\ValueObjects\AccountNumberValue;
+use Source\Domain\ValueObjects\OrderNumberValue;
 
 class Testing extends Command
 {
@@ -29,6 +27,6 @@ class Testing extends Command
      */
     #[NoReturn] public function handle(): void
     {
-        dd((new AccountNumberValue(3))->getValue());
+        report(new \Exception('Test'));
     }
 }

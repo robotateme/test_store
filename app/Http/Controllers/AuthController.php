@@ -7,8 +7,8 @@ use Auth;
 use Illuminate\Http\RedirectResponse;
 use Source\Domain\Actions\Exceptions\NotFoundException;
 use Source\Domain\Actions\User\Contracts\UserLoginActionInterface;
-use Source\Domain\Actions\User\UserLoginAction;
-use Source\Domain\Dto\User\Response\UserLoginResultDto;
+use Source\Domain\Actions\User\Input\UserLoginAction;
+use Source\Domain\Dto\User\Output\UserLoginResultDto;
 use Source\Infrastructure\Assemblers\User\UserLoginDtoAssembler;
 
 class AuthController extends Controller

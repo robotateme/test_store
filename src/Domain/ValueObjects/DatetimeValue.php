@@ -11,11 +11,17 @@ class DatetimeValue implements ValueObjectInterface
 {
     private string $format = 'Y-m-d H:i:s';
 
+    /**
+     * @return string
+     */
     public function getValue(): string
     {
         return $this->value->format($this->format);
     }
 
+    /**
+     * @return string
+     */
     public function __toString(): string
     {
         return $this->value->format($this->format);

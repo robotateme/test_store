@@ -7,13 +7,12 @@ use Source\Domain\Actions\Basket\BasketAddProductAction;
 use Source\Domain\Actions\Basket\BasketGetPositionsAction;
 use Source\Domain\Actions\Basket\Contracts\BasketAddProductActionInterface;
 use Source\Domain\Actions\Basket\Contracts\BasketGetPositionsActionInterface;
-use Source\Domain\Actions\Contracts\ActionInterface;
 use Source\Domain\Actions\Product\Contracts\ProductGetOneActionInterface;
 use Source\Domain\Actions\Product\Contracts\ProductsGetListActionInterface;
-use Source\Domain\Actions\Product\ProductGetListAction;
-use Source\Domain\Actions\Product\ProductGetOneAction;
+use Source\Domain\Actions\Product\Output\ProductGetListAction;
+use Source\Domain\Actions\Product\Output\ProductGetOneAction;
 use Source\Domain\Actions\User\Contracts\UserLoginActionInterface;
-use Source\Domain\Actions\User\UserLoginAction;
+use Source\Domain\Actions\User\Input\UserLoginAction;
 
 class ActionsProvider extends ServiceProvider
 {

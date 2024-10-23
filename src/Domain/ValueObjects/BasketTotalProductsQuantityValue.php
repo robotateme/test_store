@@ -8,6 +8,9 @@ class BasketTotalProductsQuantityValue implements ValueObjectInterface
 {
     private int $value;
 
+    /**
+     * @param  array  $items
+     */
     public function __construct(array $items)
     {
         $result = array_reduce($items, function ($result, $item) {
@@ -18,11 +21,17 @@ class BasketTotalProductsQuantityValue implements ValueObjectInterface
         $this->value = $result ?? 0;
     }
 
+    /**
+     * @return int
+     */
     public function getValue(): int
     {
         return $this->value;
     }
 
+    /**
+     * @return string
+     */
     public function __toString(): string
     {
         return (string) $this->getValue();

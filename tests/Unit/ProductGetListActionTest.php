@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Builder;
 use JetBrains\PhpStorm\NoReturn;
 use Mockery;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Source\Domain\Actions\Product\ProductGetListAction;
-use Source\Domain\Dto\Pagination\Request\PaginationDto;
+use Source\Domain\Actions\Product\Output\ProductGetListAction;
+use Source\Domain\Dto\Pagination\Input\PaginationDto;
 use Tests\TestCase;
 
 class ProductGetListActionTest extends TestCase

@@ -1,6 +1,6 @@
 @php
-    use Source\Domain\Dto\Basket\Response\BasketPositionsDto;
-    use Source\Domain\Dto\Basket\Response\BasketPositionDto;
+    use Source\Domain\Dto\Basket\Output\BasketPositionsDto;
+    use Source\Domain\Dto\Basket\Output\BasketPositionDto;
     /**
     * @var BasketPositionsDto $positions
     * @var BasketPositionDto $position
@@ -283,36 +283,36 @@
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach($positions->items as $position)
-                            <tr>
-                                <td>
-                                    <div class="shopping-cart__product-item">
-                                        <img loading="lazy"
-                                             src="https://placehold.co/120x120/orange/black?text=Product_{{$position->product->id}}&font=oswald"
-                                             width="120" height="120" alt=""/>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="shopping-cart__product-item__detail">
-                                        <h4>{{$position->product->title}}</h4>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="shopping-cart__product-price">{{$position->product->price}}</span>
-                                </td>
-                                <td>
-                                    <span class="shopping-cart__subtotal">{{$position->quantity}}</span>
-                                </td>
-                                <td>
-                                    <span class="shopping-cart__subtotal">{{$position->price}}</span>
-                                </td>
-                                <td>
-                                    <a href="#" data-id="{{$position->id}}" class="remove-cart">
-                                        &#x2715;
-                                    </a>
-                                </td>
-                            </tr>
-                        @endforeach
+                    @foreach($positions->items as $position)
+                        <tr>
+                            <td>
+                                <div class="shopping-cart__product-item">
+                                    <img loading="lazy"
+                                         src="https://placehold.co/120x120/orange/black?text=Product_{{$position->product->id}}&font=oswald"
+                                         width="120" height="120" alt=""/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="shopping-cart__product-item__detail">
+                                    <h4>{{$position->product->title}}</h4>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="shopping-cart__product-price">{{$position->product->price}}</span>
+                            </td>
+                            <td>
+                                <span class="shopping-cart__subtotal">{{$position->quantity}}</span>
+                            </td>
+                            <td>
+                                <span class="shopping-cart__subtotal">{{$position->price}}</span>
+                            </td>
+                            <td>
+                                <a href="#" data-id="{{$position->id}}" class="remove-cart">
+                                    &#x2715;
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

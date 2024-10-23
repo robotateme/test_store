@@ -5,7 +5,7 @@ namespace Source\Infrastructure\Assemblers\User;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Source\Domain\Dto\Contracts\BaseDto;
-use Source\Domain\Dto\User\Request\UserLoginDto;
+use Source\Domain\Dto\User\Input\UserLoginDto;
 use Source\Infrastructure\Assemblers\Contracts\BaseDtoAssembler;
 
 class UserLoginDtoAssembler extends BaseDtoAssembler

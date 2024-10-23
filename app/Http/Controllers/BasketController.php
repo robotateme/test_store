@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Source\Domain\Actions\Basket\BasketRemovePositionAction;
 use Source\Domain\Actions\Basket\Contracts\BasketAddProductActionInterface;
 use Source\Domain\Actions\Exceptions\ActionException;
-use Source\Domain\Dto\Basket\Request\BasketAddProductDto;
+use Source\Domain\Dto\Basket\Input\BasketAddProductDto;
 use Symfony\Component\HttpFoundation\Response;
 
 class BasketController extends Controller
