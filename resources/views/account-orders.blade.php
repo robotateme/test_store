@@ -21,7 +21,7 @@
     <style>
         .table > :not(caption) > tr > th {
             padding: 0.625rem 1.5rem .625rem !important;
-            background-color: #6a6e51 !important;
+            background-color: #000000 !important;
         }
 
         .table > tr > td {
@@ -31,7 +31,7 @@
         .table-bordered > :not(caption) > tr > th,
         .table-bordered > :not(caption) > tr > td {
             border-width: 1px 1px;
-            border-color: #6a6e51;
+            border-color: #111111;
         }
 
         .table > :not(caption) > tr > td {

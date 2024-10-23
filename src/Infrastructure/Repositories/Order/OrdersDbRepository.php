@@ -2,6 +2,8 @@
 
 namespace Source\Infrastructure\Repositories\Order;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Source\Domain\Dto\Contracts\BaseDto;
 use Source\Domain\Dto\Order\Input\OrderCreateDto;
@@ -17,5 +19,14 @@ class OrdersDbRepository extends BaseDbRepository implements OrdersRepositoryInt
     public function create(BaseDto|OrderCreateDto $orderCreateDto)
     {
         return $this->getBuilder()->create($orderCreateDto->toArray());
+    }
+
+    /**
+     * @param  int  $userId
+     * @return Collection
+     */
+    public function getList(int $userId)
+    {
+        return $this->getBuilder()->where("user_id", $userId)->get();
     }
 }

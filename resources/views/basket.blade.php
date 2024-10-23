@@ -6,7 +6,7 @@
     * @var BasketPositionDto $position
     */
 @endphp
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 
 <head>
@@ -329,11 +329,10 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="mobile_fixed-btn_wrapper">
-                        <div class="button-wrapper container">
-                            <a href="/profile/orders" class="btn btn-primary btn-checkout">PROCEED TO CHECKOUT</a>
-                        </div>
-                    </div>
+                    <form method="post" action="/order/create">
+                        @csrf
+                        <button class="btn btn-primary btn-checkout" type="submit">PROCEED TO CHECKOUT</button>
+                    </form>
                 </div>
             </div>
         </div>

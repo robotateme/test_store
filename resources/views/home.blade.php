@@ -332,7 +332,7 @@
                 <div class="product-card-wrapper">
                     <div class="product-card mb-3 mb-md-4 mb-xxl-5">
                         <div class="pc__img-wrapper">
-                            <a href="{{url()->query('/details', ['id' => $product->id])}}"><img loading="lazy"
+                            <a href="{{url()->query('/product/details', ['id' => $product->id])}}"><img loading="lazy"
                                                                                                 src="https://placehold.co/400x541/orange/black?text=Product_{{$product->id}}&font=oswald"
                                                                                                 width="330" height="400"
                                                                                                 alt="Cropped Faux leather Jacket"

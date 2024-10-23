@@ -3,6 +3,7 @@
 namespace Source\Domain\ValueObjects;
 
 use Source\Domain\Contracts\ValueObjectInterface;
+use Source\Domain\Dto\Basket\Output\BasketPositionDto;
 use Source\Domain\Dto\Basket\Output\BasketPositionsDto;
 use Source\Domain\Dto\Contracts\BaseDto;
 use Source\Domain\Dto\Product\Output\ProductDto;
@@ -17,9 +18,9 @@ class OrderProductsStringValue implements ValueObjectInterface
     public function __construct(BaseDto|BasketPositionsDto $basketPositions)
     {
         $titles = [];
-        /** @var ProductDto $product */
-        foreach ($basketPositions->items as $product) {
-            $titles[] = $product->title;
+        /** @var BasketPositionDto $position */
+        foreach ($basketPositions->items as $position) {
+            $titles[] = $position->product->title;
         }
 
         $this->value = implode(', ', $titles);

@@ -43,7 +43,7 @@ class BasketController extends Controller
         $action->handle(new BasketAddProductDto(
             $request->product_id,
             $request->quantity,
-            $request->user_id,
+            Auth::id(),
             $request->cookie('laravel_session')
         ));
 
